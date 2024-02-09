@@ -1,0 +1,553 @@
+/* 
+    Styling the commona element acroos all the pages
+
+
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(245, 248, 248);
+}
+
+section{
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 3rem;
+}
+
+button {
+    background-color: red;
+    color: white; 
+    border: none; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    border-radius: 5px; 
+}
+
+button:hover {
+    background-color: darkblue;
+    transition: background-color 0.3s
+}
+
+h3{
+    text-transform: capitalize;
+    font-size: 30px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); 
+}
+
+
+/* Style the header */
+header {
+    background-color: darkblue; 
+    padding: 10px 20px; 
+    display: flex; 
+    align-items: center; 
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style: none; 
+    margin: 0;
+    padding: 0; 
+    display: flex; 
+}
+
+nav ul li {
+    margin-left: 20px; 
+}
+
+nav ul li a {
+    color: #fff; 
+    text-decoration: none; 
+    padding: 5px 10px; 
+}
+
+/* Style the images */
+header img {
+    width: 100px; 
+    margin-right: 50px; 
+}
+
+
+form {
+    position: relative; 
+}
+
+form input {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 35px;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0 5px 3px black;
+    position: relative; 
+}
+
+form input:focus {
+    outline: none;
+}
+
+form button {
+    position: absolute; 
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 35px 35px 0; 
+    background: red;
+    color: white;
+    font-size: 10px;
+}
+/* ==== End of Styling the form */
+
+
+
+
+/* ======== STYLING THE HOME PAGE == */
+
+.news-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px; 
+}
+
+/* Style for news update slider */
+.update-and-news-slider {
+    flex: 1; 
+}
+
+/* Style for news update slider */
+.update-and-news-slider {
+    flex: 2; 
+}
+
+.update-and-news-slider img {
+    border-radius: 10px; 
+}
+
+
+/* Style for news category container */
+
+
+.new-cat {
+    flex: 1 0 calc(30.33% - 10px); 
+    background-color: white; 
+    border-radius: 10px; 
+    padding: 10px; 
+    text-align: center; 
+    margin: 5px 0; 
+}
+
+.news-update  {
+    width: 100%;
+    background-color: #f4f4f4; 
+    border-radius: 10px; 
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+.news-update a {
+    text-decoration: none;
+    color: gray;
+    transition: background-color 0.3s; 
+}
+
+.news-update a:hover {
+    background-color: #ff4d4d; 
+    color: white; 
+}
+
+/* Style for news headline container */
+.news-headline {
+    
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px;
+   cursor: pointer;
+}
+
+
+.news-headline:last-child {
+    margin-bottom: 0; 
+}
+
+.news-headline-container {
+    flex: 1; 
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.news-headline-container h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+
+
+.news-headline-title h2 {
+    margin: 0;
+    color: #333;
+}
+
+
+
+/*==== STYLING THE HOT GIST SECTION ===== */
+.gist-section {
+    
+       
+    display: flex;
+    justify-content: space-around; 
+}
+
+.local-gist, .international-gist {
+    width: 45%; 
+}
+
+.local-gist p, .international-gist p {
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    cursor: pointer;
+}
+
+
+/* ==== TEXT VID AND AD SECTION ==== */
+.txt-vid-ad-section {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.txt-news, .live-video, .news-ad {
+    flex: 1; 
+    margin: 0 10px; 
+}
+
+.live-video{
+    flex: 2;
+}
+
+.live-video button {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    margin-bottom: 10px;
+}
+
+.live-video video {
+    width: 100%;
+}
+
+.news-ad img {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+
+/* ==== THE NEWS CATEGORY SECTION STYLING ====== */
+
+/* Style the container */
+.top-topics-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+/* Style each category item */
+.top-topic-item {
+    width: calc(30% - 10px); 
+    margin-bottom: 20px; 
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+}
+
+/* Style the image */
+.top-topic-item img {
+    width: 100px; 
+    border-radius: 8px; 
+    border: 2px solid white; 
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); 
+    margin-right: 8px;
+}
+
+/* Style the text container */
+.top-topic-desc {
+    flex: 1; 
+}
+
+/* Style the heading */
+.top-topic-desc h4 {
+    margin: 0; 
+}
+
+/* Style the paragraph */
+.top-topic-desc p {
+    margin: 5px 0; 
+    font-size: 10px;
+}
+
+/*=== TOP NEWS CATEGORY STYLE==== */
+.top-news-category{
+    margin-top: 50px;
+    align-items: center;
+    text-align: center;
+}
+.top-news-category form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.top-news-category input{
+    background-color: black;
+    color: white;
+}
+
+
+
+/*** ===== TOP NEWS CATEGORY STYLING */
+/* Style for category item container */
+.cat-item-container {
+    display: flex;
+    flex-wrap: wrap;
+   
+    justify-content: space-evenly;
+}
+
+/* Style for category item */
+.cat-item {
+    background-color: rgb(233, 224, 224);     
+    padding: 10px; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    width: calc(13% - 10px);
+    margin-bottom: 20px; 
+    margin-right: 20px; 
+    cursor: pointer;
+}
+
+/* Style for category icon */
+.cat-item i {
+    color: red; 
+    font-size: 24px;
+    margin-bottom: 5px; 
+}
+
+/* Style for category text */
+.cat-item p {
+    margin: 0; 
+    color: #333;
+    word-wrap: break-word; 
+}
+
+/* Adjust margin for the last item in each row */
+.cat-item:nth-child(7n) {
+    margin-right: 0;
+}
+
+
+/*==== ENTERTAINMENT SECTION === */
+.entertainment-news,
+.more-news {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.more-news {
+    display: flex;
+    justify-content: flex-start; 
+    padding-top: 0;
+    margin-top: 0;
+    overflow-x: auto;
+    width: calc(100% - 30px); 
+    padding-top: 30px;
+}
+
+.more-news .more-news-item {
+    flex: 0 0 auto; 
+    width: calc(33.33% - 20px); 
+    margin-right: 20px; 
+}
+
+.more-news .more-news-item:last-child {
+    margin-right: 0; 
+}
+
+
+.get-entertainment-update,
+.music-news {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+.music-news{
+    width: 100% !important;
+    overflow-y: auto;
+    height: 900px;
+    border-bottom: 4px solid black;
+}
+
+.music-news-item {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.music-news-content {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.music-news-content img {
+    width: 100px; 
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.music-news-desc h4 {
+    margin: 0; 
+    color: #333; 
+}
+
+.music-news-desc p {
+    margin: 0; 
+    color: #777; 
+    font-size: 10px;
+}
+
+
+
+.get-entertainment-update{
+    flex: 3;
+}
+
+
+.featured-news img {
+    width: 100%; 
+    margin-bottom: 10px; 
+    object-fit: cover;
+}
+
+.featured-news p {
+    color: #333; 
+    margin-bottom: 10px; 
+    font-weight: bold;
+}
+
+.featured-news button {
+    background-color: gray;
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.featured-news button:hover {
+    background-color: #cc0000; 
+    transition: background-color 0.3s;
+}
+
+
+
+
+
+.entertainment-header{
+    background-color: red;
+    
+}
+
+.entertainment-header p{
+    text-transform: uppercase;
+    font-size: 26px;
+    padding-left: 5rem;
+    color: white;
+}
+
+
+/**** ==== RECENT MOVIES CONTAINER =====*/
+.recent-movie-container {
+    display: flex;
+    justify-content: space-around;
+    background-image: url('../news/movie3.jpeg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    margin-top: 90px;
+    padding: 30px;
+}
+
+
+.movie-title,
+.movie-details {
+    flex: 1; 
+    padding: 20px; 
+    color: #fff;
+}
+
+
+.movie-title{
+    padding-left: 7rem;
+}
+
+
+.movie-details p,
+.movie-title p {
+    margin-bottom: 20px; 
+    width: 450px;
+}
+
+.movie-details button {
+    padding: 15px 30px; 
+   
+}
+
+.stars {
+    color: gold;
+    font-size: 24px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Adjust width for responsiveness */
+@media (max-width: 768px) {
+    .cat-item {
+        width: calc(25% - 20px);
+    }
+}
