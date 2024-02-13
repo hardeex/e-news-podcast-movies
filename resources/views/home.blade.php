@@ -687,9 +687,604 @@
         </div>
    </div>
 
-   <div class="award-container">
-    najdnvjfsnvjfnjfnjini
+   <div class="display-movies">
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>
+            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
+
+        <div class="movie-item">
+            <a href="">
+                <img src="news/movie3.jpeg" alt="Movies Cover Image">
+                <p>Movie Title</p>
+            </a>            
+        </div>
    </div>
+
+   <div class="display-music">
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+
+        <div class="music-item">
+            <img src="news/music-cover.jpeg" alt="Music Cover Image">
+            <a href="">
+                    <div>
+                    <h5>Music Title</h5>
+                    <p>Singer Name</p>
+                </div>
+            </a>                    
+        </div>
+   </div>
+   <section>
+        <button type="submit" style="padding: 10px">See More Music</button>
+   </section>
+
+   <div class="pride-of-nigeria">
+    <h2>PRIDE OF NIGERIA</h2>
+    <i class="fas fa-star">  Award  </i> <i class="fas fa-star">  </i>
+    <section>
+        <div class="show-pride-items">
+            <div class="pride-item">
+                <img src="news/pride.jpeg" alt="">
+                <div class="pride-txt">
+                    <h4>Pride Title</h4>
+                    <p id="pride-type">This Morning Emergency Service</p>
+                </div>
+                <p class="pride-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius similique aperiam, ipsam iure, corporis maiores magni maxime voluptates saepe nemo temporibus tenetur fuga necessitatibus possimus nihil aliquid accusantium dolor fugit?</p>
+            </div>
+
+                    
+            <div class="pride-item">
+                <img src="news/pride.jpeg" alt="">
+                <div class="pride-txt">
+                    <h4>Pride Title</h4>
+                    <p id="pride-type">This Morning Emergency Service</p>
+                </div>
+                <p class="pride-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius similique aperiam, ipsam iure, corporis maiores magni maxime voluptates saepe nemo temporibus tenetur fuga necessitatibus possimus nihil aliquid accusantium dolor fugit?</p>
+            </div>
+        
+            <div class="pride-item">
+                <img src="news/pride.jpeg" alt="">
+                <div class="pride-txt">
+                    <h4>Pride Title</h4>
+                    <p id="pride-type">This Morning Emergency Service</p>
+                </div>
+                <p class="pride-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius similique aperiam, ipsam iure, corporis maiores magni maxime voluptates saepe nemo temporibus tenetur fuga necessitatibus possimus nihil aliquid accusantium dolor fugit?</p>
+            </div>
+        </div>
+     <button type="submit" id="pride-btn">Pride of Nigeria</button>           
+    </section>
+   </div>
+
+   <section>
+    <h2>Other Essential Solutions</h2>
+    <div class="essential-items-container">
+        <div class="essential-item">
+            <a href="">
+                <p class="e-title">E-Registry</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio velit expedita? Eius dolores, quos sunt ut voluptatum itaque assumenda tempora</p>
+            </a>
+        </div>
+    
+        <div class="essential-item">
+            <a href="">
+                <p class="e-title">E-Certified</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio velit expedita? Eius dolores, quos sunt ut voluptatum itaque assumenda tempora</p>
+            </a>
+        </div>
+    
+        <div class="essential-item">
+            <a href="">
+                <p class="e-title">E-Registry</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio velit expedita? Eius dolores, quos sunt ut voluptatum itaque assumenda tempora</p>
+            </a>
+        </div>
+    
+        <div class="essential-item">
+           <a href="">
+            <p class="e-title">E-Autos</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio velit expedita? Eius dolores, quos sunt ut voluptatum itaque assumenda tempora</p>
+           </a>
+        </div>
+        
+        <div class="essential-item">
+           <a href="">
+            <p class="e-title">E-Registry</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio velit expedita? Eius dolores, quos sunt ut voluptatum itaque assumenda tempora</p>
+           </a>
+        </div>
+    </div>
+    
+   </section>
+
+
+   <section>
+    <div class="short-video-header">
+            <h2>Short Videos</h2>
+            <button type="submit">See All</button>
+        </div>
+    <div class="short-video-container">
+        
+    
+        <div class="short-video-row">
+            <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+
+        <div class="short-video-item">
+            <div class="video-overlay">
+                <button class="play-button"></button>
+            </div>
+            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+                <source src="news/night.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-stats">
+                <div>
+                    <i class="fas fa-heart"></i>
+                    <span class="likes">100</span>
+                </div>
+    
+                <div>
+                    <i class="fas fa-eye"></i>
+                    <span class="views">1K </span>
+                </div>    
+            </div>            
+        </div>
+        </div>        
+    </div>    
+   </section>
+
+
+   <section>
+    <div class="news-header-container">
+        <div class="update-and-news-slider">
+            <div class="news-update-slider">
+                <a href=""> <img src="news/1.jpg" alt="news update" id="slider-img"></a>
+                
+            </div>
+
+            <div class="news-category-container">
+                <div class="news-update">
+                    <a href="#" class="new-cat">Sports</a>
+                    <a href="#" class="new-cat">Lifestyle</a>
+                    <a href="#" class="new-cat">Memorial</a>
+                    <a href="#" class="new-cat">Local</a>
+                    <a href="#" class="new-cat">International</a>
+                    <a href="#" class="new-cat">Politics</a>
+                    <a href="#" class="new-cat">Sports</a>
+                    <a href="#" class="new-cat">Sports</a>
+                    <a href="#" class="new-cat">Sports</a>                    
+                </div>
+            </div>
+            
+        </div>
+       
+
+        <!-- start of the headline section-->
+        <div class="news-headline-container">
+            <h3>Rememrance</h3>
+            <!--- show the news headline-->
+            <div class="news-headline">
+                <div class="news-headline-image">
+                    <a href=""><img src="news/4.jpg" alt="headline image"></a>
+                </div>
+                <div class="news-headline-title">
+                    <h2>International Jazz Festival</h2>
+                </div>
+                <div class="news-headline-excerpt">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
+                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
+                    </p>
+                </div>
+
+
+                <div class="news-headline-image">
+                    <a href=""><img src="news/3.jpg" alt="headline image"></a>
+                </div>
+                <div class="news-headline-title">
+                    <h2>International Jazz Festival</h2>
+                </div>
+                <div class="news-headline-excerpt">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
+                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
+                    </p>
+                </div>
+
+
+                <div class="news-headline-image">
+                    <a href=""><img src="news/1.jpg" alt="headline image"></a>
+                </div>
+                <div class="news-headline-title">
+                    <h2>International Jazz Festival</h2>
+                </div>
+                <div class="news-headline-excerpt">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
+                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
+                    </p>
+                </div>
+
+                <div class="news-headline-image">
+                    <a href=""><img src="news/5.jpg" alt="headline image"></a>
+                </div>
+                <div class="news-headline-title">
+                    <h2>International Jazz Festival</h2>
+                </div>
+                <div class="news-headline-excerpt">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
+                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
+                    </p>
+                </div>
+                
+            </div>
+            
+        </div>
+        <!-- end of the news-container-headline-->
+    </div>
+
+</section>
 @endsection
 
 

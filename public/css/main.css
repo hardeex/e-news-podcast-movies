@@ -1,4 +1,8 @@
 /* 
+    Developer - Adewale
+    Developer means of contact - webmasterjdd@gmail.com, +2348148413982
+    Project Github Link:
+    Documentation Link:
     Styling the commona element acroos all the pages
 
 
@@ -40,6 +44,27 @@ img{
     height: auto;
     object-fit: cover;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); 
+}
+
+a{
+    text-decoration: none;
+}
+
+/* For WebKit browsers targetting the scrollbar*/
+::-webkit-scrollbar {
+    width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+    background: darkblue;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: black; 
 }
 
 
@@ -530,14 +555,249 @@ form button {
 }
 
 
+/*=== HANDLING THE MOVIES AND MUSIC DISPLAYS ===*/
+
+.display-movies,
+.display-music {
+    display: flex;
+    overflow-x: auto; 
+    padding: 20px 0; 
+    margin-top: 50px;
+}
+
+.movie-item {
+    flex-shrink: 0; 
+    text-align: center;
+    margin-right: 20px; 
+}
+
+.movie-item img {
+    width: 150px; 
+    height: 200px;
+    object-fit: cover;
+}
+
+.movie-item p {
+    margin-top: 10px; 
+}
+
+.display-music{
+    background-color: rgb(190, 211, 71);
+    flex-direction: row !important;
+}
+
+.music-item {
+    flex-shrink: 0; 
+    display: flex; 
+    margin-top: 50px;
+    align-items: center; 
+    margin-right: 20px; 
+}
+
+.music-item img {
+    width: 100px; 
+    height: auto; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+}
+
+.music-item h5,
+.music-item p {
+    margin: 0; 
+}
+
+.music-item p {
+    color: #666; 
+}
 
 
+/*****======= STYLEING THE PRIDE OF NIGERIA SECTION ====*/
+
+.pride-of-nigeria{
+    background-color: rgb(208, 236, 208);
+    margin-top: 50px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.pride-of-nigeria h2, .pride-of-nigeria i{   
+    letter-spacing: 15px; 
+    color: green;   
+}
 
 
+.show-pride-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+}
+
+#pride-btn{
+    color: white;
+    background-color: darkgreen;
+    padding: 20px;
+    width: 600px;
+    font-size: 2rem;
+    letter-spacing: 20px;
+}
+
+#pride-btn:hover{
+    background-color: red;
+}
+
+.pride-item {
+    width: calc(33.33% - 20px); 
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 20px; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.pride-item img {
+    width: 100%;
+    height: 200px;
+}
+
+.pride-txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.pride-excerpt {
+    background-color: white;
+    padding: 10px;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid black;
+}
+
+#pride-type {
+    background-color: rgb(179, 245, 230);
+    padding: 10px;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+}
 
 
+/*=== OTHER ESSENTIAL ITEMS CONTAINER ****=====*/
+.essential-items-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.e-title{    
+    padding-top: 50px;
+}
+
+.essential-item {
+    width: calc(20% - 20px); 
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #d4e4b7; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px; 
+}
+
+.essential-item p {
+    margin: 0;
+}
+
+.essential-item p:first-child {
+    font-weight: bold;
+}
 
 
+/* ===== SHORT VIDEO DESCRIPTION ==== */
+
+.short-video-container {
+    position: relative; /* Ensure proper positioning of video stats */
+}
+
+.short-video-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.short-video-header button {
+    width: 200px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.short-video-container {
+    overflow-x: auto;
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    padding: 20px 0;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+
+.short-video-item {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    margin: 20px;   
+}
+
+.short-video-item video {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-button {
+    width: 40px;
+    height: 40px;
+    background-image: url('../news/play-button.png');
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+.play-button:hover {
+    background-color: transparent;
+}
+
+.video-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Extend to cover the entire width of the video */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: transparent; /* Remove background color */
+    z-index: 1; /* Ensure it's above the video overlay */
+}
+
+.video-stats .likes,
+.video-stats .views {
+    background-color: rgba(0, 0, 0, 0.7); /* Add background color to individual stats */
+    padding: 2px 8px; /* Adjust padding for individual stats */
+    border-radius: 5px; /* Add border radius for individual stats */
+}
 
 
 
