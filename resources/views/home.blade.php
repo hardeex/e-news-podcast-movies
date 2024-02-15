@@ -137,7 +137,7 @@
         </div>
         <div class="live-video">
             <button disabled><i class="fas fa-play"></i> Live TV</button>
-            <video controls autoplay >
+            <video controls  >
                 <source src="news/Lagos State Government Initiates Removal Of Illegal Structures In Ijora.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1026,7 +1026,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1047,7 +1047,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1068,7 +1068,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1089,7 +1089,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1110,7 +1110,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1131,7 +1131,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1152,7 +1152,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1173,7 +1173,7 @@
             <div class="video-overlay">
                 <button class="play-button"></button>
             </div>
-            <video controls autoplay loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
+            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
                 <source src="news/night.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -1194,8 +1194,8 @@
    </section>
 
 
-   <section>
-    <div class="news-header-container">
+   <section id="remembrance">
+    <div class="news-header-container" >
         <div class="update-and-news-slider">
             <div class="news-update-slider">
                 <a href=""> <img src="news/1.jpg" alt="news update" id="slider-img"></a>
@@ -1204,12 +1204,12 @@
 
             <div class="news-category-container">
                 <div class="news-update">
-                    <a href="#" class="new-cat">Sports</a>
-                    <a href="#" class="new-cat">Lifestyle</a>
                     <a href="#" class="new-cat">Memorial</a>
+                    <a href="#" class="new-cat">Condolesence</a>
+                    <a href="#" class="new-cat">Obituary</a>
                     <a href="#" class="new-cat">Local</a>
-                    <a href="#" class="new-cat">International</a>
-                    <a href="#" class="new-cat">Politics</a>
+                    <a href="#" class="new-cat">Cndolescence</a>
+                    <a href="#" class="new-cat">Politician</a>
                     <a href="#" class="new-cat">Sports</a>
                     <a href="#" class="new-cat">Sports</a>
                     <a href="#" class="new-cat">Sports</a>                    
@@ -1230,11 +1230,9 @@
                 <div class="news-headline-title">
                     <h2>International Jazz Festival</h2>
                 </div>
-                <div class="news-headline-excerpt">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                    </p>
+                <div class="remember-me">
+                    <p> Name of the deaceased    </p>
+                    <p> 68 years         </p>
                 </div>
 
 
@@ -1244,11 +1242,9 @@
                 <div class="news-headline-title">
                     <h2>International Jazz Festival</h2>
                 </div>
-                <div class="news-headline-excerpt">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                    </p>
+                <div class="remember-me">
+                    <p> Name of the deaceased    </p>
+                    <p> 68 years         </p>
                 </div>
 
 
@@ -1258,11 +1254,9 @@
                 <div class="news-headline-title">
                     <h2>International Jazz Festival</h2>
                 </div>
-                <div class="news-headline-excerpt">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                    </p>
+                <div class="remember-me">
+                    <p> Name of the deaceased    </p>
+                    <p> 68 years         </p>
                 </div>
 
                 <div class="news-headline-image">
@@ -1271,11 +1265,9 @@
                 <div class="news-headline-title">
                     <h2>International Jazz Festival</h2>
                 </div>
-                <div class="news-headline-excerpt">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                        In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                    </p>
+                <div class="remember-me">
+                    <p> Name of the deaceased    </p>
+                    <p> 68 years         </p>
                 </div>
                 
             </div>
@@ -1283,7 +1275,131 @@
         </div>
         <!-- end of the news-container-headline-->
     </div>
+</section>
 
+<div class="family-tree">
+    <h4> Start your family tree for free </h4>
+    <p>Connect with your family ancestory and discover the where, what and who of how it leads to you</p>
+    <div class="family-tree-button">
+        <button type="submit" id="view-ancestry">View Ancestry</button>
+        <button type="submit" id="build-tree-btn">Build Yout Tree</button>
+    </div>
+</div>
+
+<div class="register-biz">
+    <div class="register-caption">
+        <h3>Register Now to get your Business Listed on Essential Direct</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ea at veritatis nulla, molestias eaque rem iure dolor, sed soluta delectus minima dignissi</p>
+        <button type="submit">Register Now</button>
+    </div>
+
+    <div class="register-image">
+        <img src="images/biz-reg.jpg" alt=""E-direct business registration>
+    </div>
+</div>
+
+<section>
+    <div class="book-hotel-container">
+        <h3>Book an hotel before leaving</h3>
+        <div class="featured-hotel-container">
+            <div class="hotel">
+                <h6>Hundreds of 5-star reviews</h6>
+                <p>Thanks for your first class quality and great value</p>              
+                    <button>Book Now</button>                               
+            </div>
+
+            <div class="about-hotel">
+                <h5>You will be amazed by what we have prepared for you</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus fugit animi architecto! Accusantium, dolores. Sunt itaque maiores, inventore commodi officia quos deleniti fugiat nam beatae, perspiciatis animi quas eum.</p>
+            </div>
+        </div>
+
+        <div class="hotel-images">
+            <img src="images/hotel2.jpeg" alt="">
+            <img src="images/hotel3.jpeg" alt="">
+            <img src="images/hotel4.jpeg" alt="">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="group-container">
+        <div class="group-header">
+            <h1>Groups You May Like</h1>
+            <button>See More</button>
+        </div>
+
+        <div class="group-items-container">
+            <div class="group-item">
+                <img src="news/pride4.jpeg" alt="" class="group-image">
+                <p class="group-name">Essential Staff</p>
+                <div class="group-info">
+                    <p><span>12</span>Member</p>  
+                    <p><span>129</span>Posts today</p>                    
+                </div> <br>
+                <button>Join</button>
+            </div>
+
+            <div class="group-item">
+                <img src="news/pride4.jpeg" alt="" class="group-image">
+                <p class="group-name">Essential Staff</p>
+                <div class="group-info">
+                    <p><span>12</span>Member</p>  
+                    <p><span>129</span>Posts today</p>                    
+                </div> <br>
+                <button>Join</button>
+            </div>
+
+            <div class="group-item">
+                <img src="news/pride4.jpeg" alt="" class="group-image">
+                <p class="group-name">Essential Staff</p>
+                <div class="group-info">
+                    <p><span>12</span>Member</p>  
+                    <p><span>129</span>Posts today</p>                    
+                </div> <br>
+                <button>Join</button>
+            </div>
+
+            
+
+            <div class="group-item">
+                <img src="news/pride4.jpeg" alt="" class="group-image">
+                <p class="group-name">Essential Staff</p>
+                <div class="group-info">
+                    <p><span>12</span>Member</p>  
+                    <p><span>129</span>Posts today</p>                    
+                </div> <br>
+                <button>Join</button>
+            </div>
+
+            <div class="group-item">
+                <img src="news/pride4.jpeg" alt="" class="group-image">
+                <p class="group-name">Essential Staff</p>
+                <div class="group-info">
+                    <p><span>12</span>Member</p>  
+                    <p><span>129</span>Posts today</p>                    
+                </div> <br>
+                <button>Join</button>
+            </div>
+
+           
+
+            <div class="group-item">
+                <img src="news/pride4.jpeg" alt="" class="group-image">
+                <p class="group-name">Essential Staff</p>
+                <div class="group-info">
+                    <p><span>12</span>Member</p>  
+                    <p><span>129</span>Posts today</p>                    
+                </div> <br>
+                <button>Join</button>
+            </div>
+
+           
+
+            
+            
+        </div>
+    </div>
 </section>
 @endsection
 

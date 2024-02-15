@@ -77,6 +77,22 @@
             @yield('page-content')
         
 
+            <footer>
+                <div class="subscriber">
+                    <img src="images/notifiation.png" alt="Subscriber for E-news">
+
+                    <div class="subscribe-form">
+                        <h6>subscribe to our newsletter</h6>
+                        <p>Don't miss out on latest update and information</p>
+                        <form action="/search" method="get">
+                            <div class="search-container">
+                                <input type="email" name="subscriber-email" id="subscribe-email">
+                                <button type="submit">Search</button> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </footer>
             
 </body>
 </html>

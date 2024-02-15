@@ -177,7 +177,7 @@ form button {
 
 .news-update  {
     width: 100%;
-    background-color: #f4f4f4; 
+  
     border-radius: 10px; 
     padding: 10px;
     display: flex;
@@ -729,13 +729,14 @@ form button {
     width: 200px;
     padding: 0 !important;
     margin: 0 !important;
+    padding: 5px 10px; 
 }
 
 .short-video-container {
     overflow-x: auto;
-    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    white-space: nowrap; 
     padding: 20px 0;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px; 
 }
 
 
@@ -782,27 +783,310 @@ form button {
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0; /* Extend to cover the entire width of the video */
+    right: 0; 
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    background-color: transparent; /* Remove background color */
-    z-index: 1; /* Ensure it's above the video overlay */
+    background-color: transparent; 
+    z-index: 1; 
 }
 
 .video-stats .likes,
 .video-stats .views {
-    background-color: rgba(0, 0, 0, 0.7); /* Add background color to individual stats */
-    padding: 2px 8px; /* Adjust padding for individual stats */
-    border-radius: 5px; /* Add border radius for individual stats */
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 2px 8px; 
+    border-radius: 5px; 
+}
+
+
+/*****REMEMBRANCE SECTION */
+#remembrance{
+    background-color: #CEE9F7;
+    margin-top: 40px;
+}
+
+#remebrance-cat{
+    background-color: #CEE9F7;
+}
+.remember-me{
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-me p{
+    font-weight: bold;
+}
+
+
+/**** FAMILY TREE SECTION */
+.family-tree {
+    background-image: url('../images/family-tree.jpg');
+    background-size: cover; 
+    background-position: center; 
+    padding: 50px; 
+    text-align: center;
+    color: #fff; 
+}
+
+.family-tree h4 {
+    font-size: 2.7rem; 
+    margin-bottom: 20px;
+    text-decoration: underline; 
+    text-transform: uppercase;
+}
+
+.family-tree p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.family-tree-button {
+    display: flex;
+    justify-content: center; 
+}
+
+#view-ancestry{
+    color: green;
+    border: 1px solid green;
+    background-color: transparent;
+    padding: 20px;
+    margin-right: 22px;
+    transition: background-color 0.3s ease; 
+}
+
+#build-tree-btn{
+    color: white;
+    padding: 5px 10px;
+    background-color: green;
+    padding: 20px;
+    transition: background-color 0.3s ease; 
+}
+
+#view-acestry:hover, #build-tree-btn:hover{
+    background-color: darkblue;
+    transition: background-color 0.3s;
+}
+
+
+/* REGISTER BIZ ON E-DIRECT SECTION */
+.register-biz {
+    background: linear-gradient(to right, #FF5733, #FFC300); 
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 50px; 
+}
+
+.register-caption {
+    max-width: 50%; 
+    color: #fff;
+}
+
+.register-caption h3 {
+    font-size: 24px; 
+    margin-bottom: 20px; 
+}
+
+.register-caption p {
+    font-size: 18px; 
+    margin-bottom: 20px; 
+}
+
+.register-caption button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background-color: #fff; 
+    color: #FF5733; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.register-caption button:hover {
+    background-color: darkblue; 
+    color: #fff; 
+}
+
+
+/*=== HOTEL SECTION */
+
+.book-hotel-container {
+    
+    padding: 50px; 
+}
+
+.book-hotel-container img{
+    object-fit: cover;
+}
+
+.featured-hotel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.hotel {
+    flex: 2; 
+    background-image: url(../images/hotel6.jpeg);
+    background-size: cover; 
+    padding: 20px; 
+    color: #fff;
+}
+
+.hotel h6{
+    font-size: 1.9rem;
+    font-weight: bold;
 }
 
 
 
+.hotel button {
+    padding: 10px 20px;
+    font-size: 16px; 
+    background-color: #FF5733; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    text-align: end;
+    align-items:end ;
+}
+
+.hotel button:hover {
+    background-color: darkblue; 
+}
+
+.about-hotel {
+    flex: 1; 
+    background-color: #f2f2f2; 
+    padding: 20px; 
+}
+
+.about-hotel h5{
+    color: red;
+    font-size: 1.5rem;
+}
+
+.about-hotel p {
+    border-bottom: 8px solid red;
+    padding-bottom: 10px;
+}
+
+.hotel-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotel-images img {
+    width: 30%; 
+    margin-bottom: 20px;
+}
 
 
+/*=== GROUP SECTION STYLING=== */
+
+
+.group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center-align items vertically */
+    margin-bottom: 20px; /* Add margin for spacing */
+}
+
+.group-header h1 {
+    font-size: 24px; /* Adjust font size */
+    margin: 0; /* Remove default margin */
+}
+
+.group-header button {
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 16px; /* Adjust font size */
+    background-color: #007bff; /* Set button background color */
+    color: #fff; /* Set button text color to white */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Add pointer cursor for better usability */
+}
+
+.group-header button:hover {
+    background-color: red; /* Change button background color on hover */
+}
+
+.group-items-container {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbar for browsers that support it */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+.group-items-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for webkit-based browsers */
+}
+
+.group-item {
+    flex: 0 0 auto; /* Prevent items from growing to fill container */
+    margin-right: 20px; /* Add margin between items */
+    background-color: rgb(240, 235, 235); /* Set background color */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    transition: box-shadow 0.3s ease; /* Add transition effect */
+}
+
+.group-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+
+.group-image {
+    width: 100%; /* Set fixed width for group images */
+    height: 100px; /* Set fixed height for group images */
+    object-fit: cover; /* Ensure images maintain aspect ratio */
+     /* Make images circular */
+    /* Add any additional styling for group images if needed */
+}
+
+.group-name {
+    font-weight: bold; /* Make group name bold */
+    margin-top: 10px; /* Add margin above group name */
+    text-transform: uppercase;
+}
+
+.group-info {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    gap: 10px; /* Add space between items */
+}
+
+
+.group-info p {
+    margin: 0; /* Remove default margin */
+    font-weight: bold;
+}
+
+.group-info p span {
+    font-weight: bold; /* Make numbers bold */
+    margin-right: 5px; /* Add spacing between numbers and text */
+}
+
+.group-item button {
+    padding: 8px 15px; /* Add padding to the button */
+    font-size: 14px; /* Adjust font size */
+    background-color: red; /* Set button background color */
+    color: #fff; /* Set button text color to white */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Add pointer cursor for better usability */
+    
+    
+}
+
+.group-item button:hover {
+    background-color: darkblue; /* Change button background color on hover */
+}
 
 
 /* Adjust width for responsiveness */
