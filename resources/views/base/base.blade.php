@@ -31,9 +31,17 @@
     
 </head>
 <body onload="slider()">
-     <div class="display-exchange-rate">
-                The container to display the exchange rate in continuous horizontal scroll
-            </div>
+    <div class="display-exchange-rate">
+        <ul class="exchange-rate-list">
+            @if(isset($exchangeRate['rates']))
+                @foreach($exchangeRate['rates'] as $currency => $rate)
+                    <li>{{ $currency }}: {{ $rate }}</li>
+                @endforeach
+            @else
+                <li>Exchange rates currently unavailable</li>
+            @endif
+        </ul>
+    </div>
             <header>
                 <nav>           
                     <ul>
@@ -52,13 +60,13 @@
                             </form>
                         </li>
             
-                        <li><a href="">Nigeria</a></li>
-                        <li><a href="">World</a></li>
-                        <li><a href="">Politics</a></li>
-                        <li><a href="">Business</a></li>
-                        <li><a href="">Health</a></li>
-                        <li><a href="">Entertainment</a></li>
-                        <li><a href="">Sport</a></li>
+                        <li><a href="{{ route('single') }}">Nigeria</a></li>
+                        <li><a href="{{ route('single') }}">World</a></li>
+                        <li><a href="{{ route('single') }}">Politics</a></li>
+                        <li><a href="{{ route('single') }}">Business</a></li>
+                        <li><a href="{{ route('single') }}">Health</a></li>
+                        <li><a href="{{ route('single') }}">Entertainment</a></li>
+                        <li><a href="{{ route('single') }}">Sport</a></li>
                         <li>
                             <a href="">
                                 <i class="fa-solid fa-microphone"></i>
@@ -80,11 +88,10 @@
             <footer>
                 <div class="subscriber">
                     <img src="images/notifiation.png" alt="Subscriber for E-news">
-
                     <div class="subscribe-form">
                         <h6>subscribe to our newsletter</h6>
                         <p>Don't miss out on latest update and information</p>
-                        <form action="/search" method="get">
+                        <form action="" method="get">
                             <div class="search-container">
                                 <input type="email" name="subscriber-email" id="subscribe-email">
                                 <button type="submit">Search</button> 
@@ -92,7 +99,126 @@
                         </form>
                     </div>
                 </div>
+
+               
             </footer>
+
+          
+                 <div class="footer">
+                    <form action="/search" method="get">
+                        <div class="search-container">
+                            <input type="search" name="search" id="search">
+                            <button type="submit">Search</button> 
+                        </div>
+                    </form>
+
+                    <div class="footer-links">
+                        <div class="about-us-footer">
+                            <h3>About Us</h3>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates unde iste id pariatur corporis, doloribus aliquid deserunt iusto. Quos, distinctio beatae. Ipsum minus rerum fuga aliquid veritatis. Dolor, vero aperiam!</p>
+                            <button>Learn More</button>
+                        </div>
+
+                        <div class="quick-links-footer">
+                            <div class="link-item">
+                                <h5>World</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>Business</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>Tech</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>Entertainment</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>Health</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>World</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>World</h5>
+                                <ul>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                    <li><a href=""> Nigeria</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="link-item">
+                                <h5>Follow Us</h5>
+                                <ul class="social-icons">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <!-- Adding more social media icons as needed by the team -->
+                                </ul>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+          
             
 </body>
 </html>

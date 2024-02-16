@@ -27,3 +27,4 @@ use Illuminate\Support\Facades\Route;
 // navigate the custom home page
 Route::get('/', [MainController::class, 'index']);
 Route::get('/base', [MainController::class, 'base']); // to be deleted later
+Route::get('/single', [MainController::class, 'single'])->name('single'); // to be handled properly later

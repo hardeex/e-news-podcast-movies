@@ -99,3 +99,4 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// PASSING THE EXCHANE RATE DATE AS A JSON FILE
