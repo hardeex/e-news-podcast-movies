@@ -55,4 +55,6 @@ class MainController extends Controller
     public function single(){
         return view('single');
     }
+
+    
 }

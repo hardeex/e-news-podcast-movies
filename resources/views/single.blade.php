@@ -10,5 +10,5 @@
 @section('page-content')
 
 <section>
-    
+  <p>test</p>
 </section>

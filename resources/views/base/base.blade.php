@@ -13,8 +13,13 @@
     <!--- set custom title for each of the page-->
      <title>@yield('title')</title>
 
-     <!--- Link to the css files  -->
-     <link rel="stylesheet" href="css/main.css">
+     
+        <!-- Other CSS files -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <!-- Your custom CSS file -->
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+   
+    
      <!--End of link custom css files -->
 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-QLIq7Fqhj07dJ/oDKC4RApV5V4PPX0Xr2lryREs2znPm6wOhAMfcJC9uKn+5aWjZ" crossorigin="anonymous">
@@ -46,13 +51,13 @@
                 <nav>           
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="/">
                                 <img src="images/e-direct-logo.png" alt="E-Direct Logo">
                             </a>                    
                         </li>
             
                         <li>
-                            <form action="/search" method="get">
+                            <form action="/search" method="get" class="form">
                                 <div class="search-container">
                                     <input type="search" name="search" id="search">
                                     <button type="submit">Search</button> 
@@ -60,19 +65,29 @@
                             </form>
                         </li>
             
-                        <li><a href="{{ route('single') }}">Nigeria</a></li>
-                        <li><a href="{{ route('single') }}">World</a></li>
-                        <li><a href="{{ route('single') }}">Politics</a></li>
-                        <li><a href="{{ route('single') }}">Business</a></li>
-                        <li><a href="{{ route('single') }}">Health</a></li>
-                        <li><a href="{{ route('single') }}">Entertainment</a></li>
-                        <li><a href="{{ route('single') }}">Sport</a></li>
+                        <li><a href="{{ route('category.show', 'nigeria') }}">Nigeria</a></li>
+                        <li><a href="{{ route('category.show', 'world') }}">World</a></li>
+                        <li><a href="{{ route('category.show', 'politics') }}">Politics</a></li>
+                        <li><a href="{{ route('category.show', 'business') }}">Business</a></li>
+                        <li><a href="{{ route('category.show', 'health') }}">Health</a></li>
+                        <li><a href="{{ route('category.show', 'entertainment') }}">Entertainment</a></li>
+                        <li><a href="{{ route('category.show', 'sport') }}">Sport</a></li>                        
                         <li>
                             <a href="">
                                 <i class="fa-solid fa-microphone"></i>
                                 Audio
                             </a>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Account</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
+                                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                <li><a href="{{ route('single') }}">Admin Area</a></li>
+                            </ul>
+                        </li>
+                        
                         
                     </ul>
                 </nav>
@@ -91,7 +106,7 @@
                     <div class="subscribe-form">
                         <h6>subscribe to our newsletter</h6>
                         <p>Don't miss out on latest update and information</p>
-                        <form action="" method="get">
+                        <form action="" method="get" class="form">
                             <div class="search-container">
                                 <input type="email" name="subscriber-email" id="subscribe-email">
                                 <button type="submit">Search</button> 
@@ -105,7 +120,7 @@
 
           
                  <div class="footer">
-                    <form action="/search" method="get">
+                    <form action="/search" method="get" class="form">
                         <div class="search-container">
                             <input type="search" name="search" id="search">
                             <button type="submit">Search</button> 

@@ -95,18 +95,50 @@ nav ul li a {
     padding: 5px 10px; 
 }
 
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: darkblue; 
+    color: white;/* Change as needed */
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for better visual */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin-bottom: 5px; /* Adjust spacing between dropdown items */
+}
+
+/* Additional styling as needed */
+
+
 /* Style the images */
+
 header img {
-    width: 100px; 
-    margin-right: 50px; 
+    width: 100px;
+    margin-right: 20px; /* Adjust margin for smaller screens */
 }
 
 
-form {
+
+
+
+
+
+ .form {
     position: relative; 
 }
 
-form input {
+ .form input {
     width: 100%;
     height: 100%;
     display: block;
@@ -117,11 +149,11 @@ form input {
     position: relative; 
 }
 
-form input:focus {
+.form input:focus {
     outline: none;
 }
 
-form button {
+.form button {
     position: absolute; 
     top: 0;
     right: 0;
@@ -138,18 +170,65 @@ form button {
 
 
 /*** === STYELING THE EXCHANGE RATE CONTAINER */
-
 .exchange-rate-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Use flexbox for horizontal arrangement */
-    overflow-x: auto;
+    margin-top: 0; 
+    padding-top: 0;
+    display: flex; 
+    background-color: black; 
+    color: white; 
+    border-radius: 5px; 
+    overflow: hidden; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .exchange-rate-list li {
-    margin-right: 10px; /* Adjust spacing between items */
+    position: relative; 
+    margin-right: 20px; 
+    
+    animation: scrollItems 10s linear infinite; 
 }
+
+.exchange-rate-list li::before,
+.exchange-rate-list li::after {
+    content: "|"; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px; 
+    opacity: 0.5;
+}
+
+.exchange-rate-list li::before {
+    left: -20px; 
+}
+
+.exchange-rate-list li::after {
+    right: -20px;
+}
+
+/* Animation */
+@keyframes scrollItems {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+   
+    0% {
+        opacity: 0; 
+    }
+    10% {
+        opacity: 1; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
+
 
 
 /*** FOOOTER **/
@@ -1239,9 +1318,150 @@ footer{
 }
 
 
+/*======= HANDLING THE EROOR AND CAT. PAGE ===*/
+.not-found {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Adjusted alignment */
+    padding: 20px;
+}
+
+.post {
+    flex: 2; /* Added flex property */
+    padding: 20px;
+}
+
+.aside-container {
+    flex: 1; /* Added flex property */
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    margin-left: 20px;
+    max-height: 100%; /* Added maximum height */
+    overflow-y: auto; /* Added overflow property */
+}
+
+.aside-container h2 {
+    margin-top: 0;
+}
+
+.category-list {
+    margin-top: 20px;
+}
+
+.category-list h2 {
+    margin-bottom: 10px;
+}
+
+
+/* Style the list items */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Add some space between the list items */
+.category-list li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+/* ======= STYLING EACH POST LAYPUT ====*/
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.post {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.post h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.post .excerpt {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #666;
+}
+
+.post .read-more {
+    color: white;
+    text-decoration: none;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.post .read-more:hover {
+    text-decoration: underline;
+    background-color: darkblue;
+    transform: scale(1.1);
+}
+
+
+
 /* Adjust width for responsiveness */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    header{
+        text-align: center;
+        align-items: center;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .dropdown {
+        position: static;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown .dropdown-menu {
+        position: static;
+        display: block;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    header img {
+        width: 80px; /* Adjust width for smaller screens */
+        margin-right: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .form {
+        margin-right: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .form input {
+        width: calc(100% - 40px); /* Adjust width for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .form button {
+        display: none;
+        width: 40px; /* Adjust width for smaller screens */
+        height: 30px; /* Adjust height for smaller screens */
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
     .cat-item {
         width: calc(25% - 20px);
     }
 }
+

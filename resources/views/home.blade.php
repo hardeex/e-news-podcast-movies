@@ -242,7 +242,7 @@
    <section>
     <div class="top-news-category" >
         <h3>Top News Category</h3>
-        <form action="/search" method="get">
+        <form action="/search" method="get" class="form">
             <div class="search-container">
                 <input type="search" name="search" id="search">
                 <button type="submit">Search</button> 
