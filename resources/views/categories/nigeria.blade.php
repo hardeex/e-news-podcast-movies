@@ -26,7 +26,7 @@
             <h2>Categories</h2>
             <ul>
                 @foreach ($categories as $category)
-                    <li><a href="{{ route('category.show', $category->name) }}">{{ $category->name }}</a></li>
+                    <li><a href="{{ route('category.show', $category->id) }}">{{ $category->name }}</a></li>
                 @endforeach
             </ul>
         </div>

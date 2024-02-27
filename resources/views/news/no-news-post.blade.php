@@ -88,7 +88,8 @@
         <section>
                 <div class="not-found">
                     <div class="notfound-txt">
-                        <h3 style="text-transform: none">No posts available at the moment.</h3>                                                                        
+                        <h3 style="text-transform: none">No posts available for this category at the moment.</h3> 
+                        <p>Kindly, ensure you have not entered an invalid category</p>
                     </div>
                 
                     <div class="aside-container">

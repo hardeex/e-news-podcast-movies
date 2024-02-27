@@ -16,6 +16,9 @@ class NewsPostFactory extends Factory
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
             'category' => $this->faker->randomElement(['nigeria', 'world', 'politics', 'business', 'health', 'entertainment', 'sport']),
+            
         ];
     }
+
+    
 }

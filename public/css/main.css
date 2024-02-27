@@ -107,7 +107,7 @@ nav ul li a {
     background-color: darkblue; 
     color: white;/* Change as needed */
     padding: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for better visual */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -125,7 +125,7 @@ nav ul li a {
 
 header img {
     width: 100px;
-    margin-right: 20px; /* Adjust margin for smaller screens */
+    margin-right: 20px; 
 }
 
 
@@ -1322,35 +1322,67 @@ footer{
 .not-found {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Adjusted alignment */
+    align-items: flex-start; 
     padding: 20px;
 }
 
 .post {
-    flex: 2; /* Added flex property */
+    flex: 2; 
     padding: 20px;
 }
-
+/* Main container styles */
 .aside-container {
-    flex: 1; /* Added flex property */
+    flex: 1;
     padding: 20px;
     border-left: 1px solid #ccc;
     margin-left: 20px;
-    max-height: 100%; /* Added maximum height */
-    overflow-y: auto; /* Added overflow property */
+    max-height: 100%;
+    overflow-y: auto;
 }
 
+/* Header styles */
 .aside-container h2 {
     margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
 }
 
-.category-list {
-    margin-top: 20px;
+/* List styles */
+.aside-container ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.category-list h2 {
-    margin-bottom: 10px;
+/* List item styles */
+.aside-container li {
+    margin-bottom: 15px;
 }
+
+/* Link styles */
+.aside-container a {
+    text-decoration: none;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+}
+
+.aside-container a:hover {
+    color: #0056b3;
+}
+
+/* Image styles */
+.aside-container img {
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* Title styles */
+.aside-container .title {
+    font-weight: bold;
+}
+
 
 
 /* Style the list items */
@@ -1410,6 +1442,8 @@ ul li {
 
 
 
+
+
 /* Adjust width for responsiveness */
 @media screen and (max-width: 768px) {
     header{
@@ -1441,27 +1475,26 @@ ul li {
     }
 
     header img {
-        width: 80px; /* Adjust width for smaller screens */
-        margin-right: 10px; /* Adjust margin for smaller screens */
+        width: 80px; 
+        margin-right: 10px; 
     }
 
     .form {
-        margin-right: 10px; /* Adjust margin for smaller screens */
+        margin-right: 10px;
     }
 
     .form input {
-        width: calc(100% - 40px); /* Adjust width for smaller screens */
-        font-size: 14px; /* Adjust font size for smaller screens */
+        width: calc(100% - 40px); 
+        font-size: 14px; 
     }
 
     .form button {
         display: none;
-        width: 40px; /* Adjust width for smaller screens */
-        height: 30px; /* Adjust height for smaller screens */
-        font-size: 12px; /* Adjust font size for smaller screens */
+        width: 40px;
+        height: 30px; 
+        font-size: 12px; 
     }
     .cat-item {
         width: calc(25% - 20px);
     }
 }
-

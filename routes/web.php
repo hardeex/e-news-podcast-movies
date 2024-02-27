@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,12 +44,22 @@ require __DIR__.'/auth.php';
 
 Route::get('/category/{category}', [NewsController::class, 'showByCategory'])->name('category.show');
 Route::get('/post/{id}', [NewsController::class, 'showPost'])->name('post.show');
+//Route::get('/post/{slug}', [NewsController::class, 'showPost'])->name('post.show');
+
+
+
+// handling CRUD routes
+Route::resource('posts', NewsPostController::class);
+// handling routes for each category
+//Route::get('categories/nigeria', [NewsController::class, 'nigeria'])->name('category.nigeria');
+
+
 
 
 
 // handling 404 page
 Route::fallback(function () {
-    return view('news.no-news-post');
+    return view('404error');
 });
 
 

@@ -22,13 +22,13 @@
                     <div class="news-update">
                         <a href="#" class="new-cat">Sports</a>
                         <a href="#" class="new-cat">Lifestyle</a>
-                        <a href="#" class="new-cat">Memorial</a>
+                        <a href="#" class="new-cat"> Politics </a>
                         <a href="#" class="new-cat">Local</a>
                         <a href="#" class="new-cat">International</a>
-                        <a href="#" class="new-cat">Politics</a>
-                        <a href="#" class="new-cat">Sports</a>
-                        <a href="#" class="new-cat">Sports</a>
-                        <a href="#" class="new-cat">Sports</a>                    
+                        <a href="#" class="new-cat">Hotels</a>
+                        <a href="#" class="new-cat">Business</a>
+                        <a href="#" class="new-cat">Technology</a>
+                        <a href="#" class="new-cat">Education & Learning</a>                    
                     </div>
                 </div>
                 
