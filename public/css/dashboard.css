@@ -1,0 +1,104 @@
+/* 
+    Developer - Adewale
+    Contact - webmasterjdd@gmail.com, +2348148413982
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 50px;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .sidebar ul li a:active {
+    background-color: red;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .tabcontent {
+    display: none;
+  }
+  
+  .tabcontent h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* File Manager Styles */
+  .file-manager {
+    display: flex;
+  }
+  
+  .file-manager .sidebar {
+    background-color: black;
+  }
+  
+  .file-manager .upload-btn {
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+  
+  .file-manager .folders {
+    margin-bottom: 20px;
+  }
+  
+  .file-manager .file-list {
+    margin-top: 20px;
+  }
+  
+  .file-manager #search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .file-manager ul {
+    list-style-type: none;
+  }
+  
+  .file-manager li {
+    margin-bottom: 10px;
+  }
+  
+
+  

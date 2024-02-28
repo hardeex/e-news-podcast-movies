@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\NewsPost;
 
 class NewsPostController extends Controller
 {
@@ -12,7 +13,8 @@ class NewsPostController extends Controller
      */
     public function index()
     {
-        //
+        $newsPosts = NewsPost::all();
+        return view('admin.news.index', compact('newsPosts'));
     }
 
     /**
