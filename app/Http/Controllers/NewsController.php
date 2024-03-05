@@ -13,24 +13,33 @@ class NewsController extends Controller
      // Display news posts by category
      public function showByCategory($category)
      {
-         $newsPosts = NewsPost::where('category', $category)->get();
+         // Fetch category by name
+         $category = Category::where('name', $category)->first();
+     
+         if (!$category) {
+             return view('news.no-news-post');
+         }
+     
+         // Fetch news posts by category ID
+         $newsPosts = NewsPost::where('category', $category->name)->get();
+     
+         // Fetch recent posts
          $recentPosts = NewsPost::orderBy('created_at', 'desc')->take(5)->get();
-         
-         // Fetch images for recent posts
-         $recentPosts->load('image');
- 
+     
+              
          if ($newsPosts->isEmpty()) {
              return view('news.no-news-post');
          }
- 
+     
          return view('news.category', compact('category', 'newsPosts', 'recentPosts'));
      }
+     
      
      // Display individual news post
    // Display individual news post
     public function showPost($id)
     {
-        $post = NewsPost::with('image')->find($id); // Eager load the 'image' relationship
+        $post = NewsPost::with('images')->find($id); // Eager load the 'image' relationship
         if (!$post) {
             return view('news.no-news-post');
         }

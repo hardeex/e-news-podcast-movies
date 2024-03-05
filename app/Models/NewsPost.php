@@ -2,27 +2,17 @@
 
 namespace App\Models;
 
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Image;
-use Illuminate\Support\Str;
 
 class NewsPost extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'title', 'content', 'image', 'is_featured', 'is_trending', 'is_headline', 'category_id',
+    ];
 
-    protected $fillable = ['title', 'content', 'category', 'image_url']; 
-
-    public function setTitleAttribute($value)
+    // Define relationships if needed
+    public function category()
     {
-        $this->attributes['title'] = $value;
-       // $this->attributes['slug'] = Str::slug($value);
+        return $this->belongsTo(Category::class);
     }
-
-    public function image()
-    {
-        return $this->belongsTo(Image::class);
-    }
-    
 }

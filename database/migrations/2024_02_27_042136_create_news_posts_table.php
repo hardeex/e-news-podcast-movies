@@ -10,7 +10,7 @@ class CreateNewsPostsTable extends Migration
         Schema::create('news_posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->longText('content');
             $table->string('image')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_trending')->default(false);

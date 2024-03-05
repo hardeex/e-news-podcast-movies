@@ -23,13 +23,14 @@ class NewsPostSeeder extends Seeder
         'Merchant', 'Engineering', 'Events Conference', 'Energy & Utilities', 'Car Dealers', 'Artisans', 
         'Security & Emergency', 'Pet Supply', 'Schools', 'Online Influencers', 'Personal Care', 'Toursim & Hospitality',
         'Fashion & Clothing', 'Food & Restaurant', 'Companies', 'Phones & Laptop', 'Religion & Spirituality',
-        'Shopping', 'Transportation', 'NGO', 'Online Courses'];
+        'Shopping', 'Transportation', 'NGO', 'Online Courses','others'];
 
         foreach ($categories as $category) {
             foreach (range(1, 10) as $index) {
                 $title = $faker->sentence;
                 $content = $faker->paragraph;
-                $image = $faker->imageUrl(400, 300, 'news'); // Generate fake image URL
+                $image = $faker->imageUrl(400, 300, 'news'); 
+                
 
                 NewsPost::create([
                     'title' => $title,

@@ -51,11 +51,31 @@ Route::get('/post/{id}', [NewsController::class, 'showPost'])->name('post.show')
 
 // Management interface for admin and regular users
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-Route::resource('admin/news', NewsPostController::class);
+//Route::resource('admin/news', NewsPostController::class);
+Route::get('/admin/news', [NewsPostController::class, 'index'])->name('admin.news.index');
 Route::get('/admin/news/{news}/edit', [NewsPostController::class, 'edit'])->name('admin.news.edit');
-Route::get('/admin/news/{news}/destroy', [NewsPostController::class, 'destroy'])->name('admin.news.destroy');
+
+Route::get('/admin/news/{news}/update', [NewsPostController::class, 'update'])->name('admin.news.update');
+Route::put('/admin/news/{news}', [NewsPostController::class, 'update'])->name('admin.news.update');
+
+Route::delete('/admin/news/{news}', [NewsPostController::class, 'destroy'])->name('admin.news.destroy');
 
 
+//Route::get('/admin/news/{news}/destroy', [NewsPostController::class, 'destroy'])->name('admin.news.destroy');
+//Route::get('/admin/news/create', [NewsPostController::class, 'create'])->name('admin.news.create');
+Route::get('/admin/news/{id}/edit', [NewsPostController::class, 'edit'])->name('admin.news.edit');
+
+
+
+
+Route::get('/admin/news/create', [NewsPostController::class, 'create'])->name('admin.news.create');
+Route::post('/admin/news', [NewsPostController::class, 'store'])->name('admin.news.store');
+//Route::post('/admin/news/store', [NewsPostController::class, 'store'])->name('admin.news.store');
+
+
+// handling uploaded images via the ckeditor
+//Route::post('/admin/news/upload-image', [NewsPostController::class, 'uploadImage'])->name('admin.news.upload_image');
+route::post('/admin/news/upload', [NewsPostController::class, 'upload'])->name('ckeditor.upload');
 
 // handling CRUD routes
 Route::resource('posts', NewsPostController::class);

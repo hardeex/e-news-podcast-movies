@@ -1411,11 +1411,41 @@ ul li {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.post:hover {
+    transform: translateY(-5px);
 }
 
 .post h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.post .meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.post .category {
+    color: #333;
+    background-color: #f4f4f4;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.post .read-time {
+    color: #666;
 }
 
 .post .excerpt {
@@ -1431,7 +1461,6 @@ ul li {
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
-    display: inline-block;
 }
 
 .post .read-more:hover {
@@ -1441,7 +1470,12 @@ ul li {
 }
 
 
-
+/**** STYLING THE CKEDITOR */
+.editor{
+    .ck-editor__editable_inline{
+        height: 450px;
+    }
+}
 
 
 /* Adjust width for responsiveness */

@@ -14,7 +14,7 @@ class CategorySeeder extends Seeder
         'Merchant', 'Engineering', 'Events Conference', 'Energy & Utilities', 'Car Dealers', 'Artisans', 
         'Security & Emergency', 'Pet Supply', 'Schools', 'Online Influencers', 'Personal Care', 'Toursim & Hospitality',
         'Fashion & Clothing', 'Food & Restaurant', 'Companies', 'Phones & Laptop', 'Religion & Spirituality',
-        'SHopping', 'Transportation', 'NGO', 'Online Courses'];
+        'Shopping', 'Transportation', 'NGO', 'Online Courses', 'Others'];
 
         foreach ($categories as $category) {
             Category::create(['name' => $category]);

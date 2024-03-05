@@ -14,9 +14,11 @@
 
 <div class="dashboard">
   <div class="sidebar">
-    <h2>Dashboard</h2>
+    <h2 style="margin-bottom: 5rem">Dashboard</h2>
     <ul>
       <li><a href="#" class="tablinks" onclick="openTab(event, 'view-website')">View Website</a></li>
+      <li><a href="{{ route('admin.news.index') }}" target="_blank">Manage Posts</a></li>
+      <li><a href="{{ route('admin.news.create') }}" target="_blank">Create New Post</a></li>
       <li><a href="#" class="tablinks" onclick="openTab(event, 'published-news')">Published News</a></li>      
     </ul>
   </div>

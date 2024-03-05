@@ -8,10 +8,17 @@
 <section>
 
     <div class="not-found">
-         <div class="post">
-        <h2>{{ $post->title }}</h2>
-        <p>{{ $post->content }}</p>        
-    </div>
+        <div class="post">
+            <h2>{{ $post->title }}</h2>
+            @if ($post->image)
+                <img src="{{ asset($post->image) }}" alt="Post Image">
+            @endif
+            <div>{!! nl2br(e($post->content)) !!}</div> 
+        </div>
+        
+        
+        
+        
 
     <div class="aside-container">
         <h2>Recent News</h2>

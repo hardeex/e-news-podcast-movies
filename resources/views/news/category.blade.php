@@ -11,12 +11,26 @@
             @foreach ($newsPosts as $post)
             <div class="post">
                 <h2>{{ $post->title }}</h2>
-                <img src="{{ $post->image }}" alt="{{ $post->title }}">
+                @if($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                @endif
+                <p class="meta">
+                    Posted on {{ $post->created_at->format('M d, Y') }} by {{ optional($post->author)->name ?? 'E-News Staff' }}
+                    @if($post->category)
+                    @if(is_string($post->category))
+                    <span class="category">{{ $post->category }}</span>
+                @else
+                    <span class="category">{{ $post->category->name }}</span>
+                @endif
+                
+                    @endif
+                    <span class="read-time">{{ calculateReadTime($post->content) }} min read</span>
+                </p>
                 <p class="excerpt">{{ Illuminate\Support\Str::limit($post->content, 80) }}</p>
                 <a href="{{ route('post.show', $post->id) }}" class="read-more">Read more</a>
+                <!-- I intend to link social media here -->
             </div>
-            
-            
+                       
             @endforeach
         </div>
     @endif
