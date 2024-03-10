@@ -14,21 +14,47 @@
         <div class="news-header-container">
             <div class="update-and-news-slider">
                 <div class="news-update-slider">
-                    <a href=""> <img src="news/1.jpg" alt="news update" id="slider-img"></a>
-                    
+                    <img src="{{ asset('storage/' . $newsPosts[0]->image) }}" alt="news update" id="slider-img">
                 </div>
+                
+                <script>
+                    var storeSliderImages = [
+                        @foreach($newsPosts as $post)
+                            "{{ asset('storage/' . $post->image) }}",
+                        @endforeach
+                    ];
+                
+                    var len = storeSliderImages.length;
+                    var i = 0;
+                
+                    function slider() {
+                        var slideImage = document.getElementById("slider-img"); 
+                
+                        if (i > len - 1) {
+                            i = 0;
+                        }
+                
+                        slideImage.src = storeSliderImages[i];
+                        i++;
+                        setTimeout(slider, 5000); 
+                    }
+                
+                    // Start the slider
+                    slider();
+                </script>
+                
     
                 <div class="news-category-container">
                     <div class="news-update">
-                        <a href="#" class="new-cat">Sports</a>
-                        <a href="#" class="new-cat">Lifestyle</a>
-                        <a href="#" class="new-cat"> Politics </a>
-                        <a href="#" class="new-cat">Local</a>
-                        <a href="#" class="new-cat">International</a>
-                        <a href="#" class="new-cat">Hotels</a>
-                        <a href="#" class="new-cat">Business</a>
-                        <a href="#" class="new-cat">Technology</a>
-                        <a href="#" class="new-cat">Education & Learning</a>                    
+                        <a href="{{ route('category.show', 'health') }}" class="new-cat">Health</a>
+                        <a href="{{ route('category.show', 'lifestyle') }}" class="new-cat">Lifestyle</a>
+                        <a href="{{ route('category.show', 'politics') }}" class="new-cat"> Politics </a>
+                        <a href="{{ route('category.show', 'local') }}" class="new-cat">Local</a>
+                        <a href="{{ route('category.show', 'international') }}" class="new-cat">International</a>
+                        <a href="{{ route('category.show', 'hotels') }}" class="new-cat">Hotels</a>
+                        <a href="{{ route('category.show', 'business') }}" class="new-cat">Business</a>
+                        <a href="{{ route('category.show', 'tedchnology') }}" class="new-cat">Technology</a>
+                        <a href="{{ route('category.show', 'education & learning') }}" class="new-cat">Education & Learning</a>                    
                     </div>
                 </div>
                 
@@ -38,65 +64,28 @@
             <!-- start of the headline section-->
             <div class="news-headline-container">
                 <h3>Headline</h3>
+
+           
                 <!--- show the news headline-->
                 <div class="news-headline">
-                    <div class="news-headline-image">
-                        <a href=""><img src="news/4.jpg" alt="headline image"></a>
+                    @foreach($newsPosts as $post)
+                    @if($post->is_headline)
+                        @if($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                        @endif
+                        <h2>{{ $post->title }}</h2>
+                        <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 150) !!}</p>
+                    @endif
+                @endforeach
+                
                     </div>
-                    <div class="news-headline-title">
-                        <h2>International Jazz Festival</h2>
-                    </div>
-                    <div class="news-headline-excerpt">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                            In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                        </p>
-                    </div>
+                   
     
-    
-                    <div class="news-headline-image">
-                        <a href=""><img src="news/3.jpg" alt="headline image"></a>
-                    </div>
-                    <div class="news-headline-title">
-                        <h2>International Jazz Festival</h2>
-                    </div>
-                    <div class="news-headline-excerpt">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                            In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                        </p>
-                    </div>
-    
-    
-                    <div class="news-headline-image">
-                        <a href=""><img src="news/1.jpg" alt="headline image"></a>
-                    </div>
-                    <div class="news-headline-title">
-                        <h2>International Jazz Festival</h2>
-                    </div>
-                    <div class="news-headline-excerpt">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                            In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                        </p>
-                    </div>
-    
-                    <div class="news-headline-image">
-                        <a href=""><img src="news/5.jpg" alt="headline image"></a>
-                    </div>
-                    <div class="news-headline-title">
-                        <h2>International Jazz Festival</h2>
-                    </div>
-                    <div class="news-headline-excerpt">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Repellendus unde odio culpa fuga fugiat reiciendis sit commodi alias. 
-                            In veniam fugiat saepe soluta! Atque facere velit labore quas expedita praesentium.
-                        </p>
-                    </div>
+                  
                     
                 </div>
                 
-            </div>
+            
             <!-- end of the news-container-headline-->
         </div>
     
@@ -107,17 +96,47 @@
      <div class="gist-section">
         <div class="local-gist">
             <h3>Hot Local Gists</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti unde architecto delectus expedita nulla voluptas nam, fuga suscipit minima totam quis. Beatae consectetur accusantium delectus ipsa non dolores iure obcaecati.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti unde architecto delectus expedita nulla voluptas nam, fuga suscipit minima totam quis. Beatae consectetur accusantium delectus ipsa non dolores iure obcaecati.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti unde architecto delectus expedita nulla voluptas nam, fuga suscipit minima totam quis. Beatae consectetur accusantium delectus ipsa non dolores iure obcaecati.</p>
+            @php
+            $localPostsExist = false;
+        @endphp
+        
+        @foreach($newsPosts as $post)
+            @if($post->category == 'Local')
+                <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                @php
+                    $localPostsExist = true;
+                @endphp
+            @endif
+        @endforeach
+        
+        @if(!$localPostsExist)
+            <p>No post available for this category yet</p>
+        @endif
+        
         </div>
+        
+        
        
         
         <div class="international-gist">
             <h3>Hot International Gists</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fugiat esse incidunt similique natus. Deleniti perspiciatis laboriosam provident dolore dolorum adipisci magnam neque, ducimus animi, debitis cumque saepe omnis accusantium?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti unde architecto delectus expedita nulla voluptas nam, fuga suscipit minima totam quis. Beatae consectetur accusantium delectus ipsa non dolores iure obcaecati.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti unde architecto delectus expedita nulla voluptas nam, fuga suscipit minima totam quis. Beatae consectetur accusantium delectus ipsa non dolores iure obcaecati.</p>
+            @php
+            $localPostsExist = false;
+        @endphp
+        
+        @foreach($newsPosts as $post)
+            @if($post->category == 'International')
+                <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                @php
+                    $localPostsExist = true;
+                @endphp
+            @endif
+        @endforeach
+        
+        @if(!$localPostsExist)
+            <p>No post available for this category yet</p>
+        @endif
+        
         </div>
     </div>
 
@@ -129,10 +148,12 @@
         <div class="txt-news">
             <div class="international-gist">
                 <h3>Topics</h3>
-                <p>Lorem ipsum dolor sit amet consectetur</p>
-                <p>Lorem ipsum dolor sit amet consectetur</p>
-                <p>Lorem ipsum dolor sit amet consectetur</p>
-                <p>Lorem ipsum dolor sit amet consectetur</p>               
+                @foreach($newsPosts->take(10) as $post)
+                    <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                @endforeach
+            
+            
+                         
             </div>
         </div>
         <div class="live-video">
@@ -155,83 +176,21 @@
      <!--- TOP TOPIC NEWS CATEGORIES SECTION ==== -->
    <div class="e-news-topics">
     <h3 >Top Topics</h3> 
-   <div class="top-topics-container">
-      
-       <div class="top-topic-item">
-         
-           <img src="news/1.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-         
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/2.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/3.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/4.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/5.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/6.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/7.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/8.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-
-       <div class="top-topic-item">
-           <img src="news/4.jpg" alt="News category">
-           <div class="top-topic-desc">
-               <h4>Business News</h4>
-               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure commodi reiciendis exercitatioatione, similique doloremque.</p>
-           </div>
-       </div>
-   </div>
-  </div>
+    <div class="top-topics-container">
+        @foreach($newsPosts as $post)
+            @if($post->top_topic)
+                <div class="top-topic-item">
+                    @if($post->image)
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                    @endif
+                    <div class="top-topic-desc">
+                        <h2>{{ $post->title }}</h2>
+                        <p>{!! Illuminate\Support\Str::words(strip_tags($post->content), 30) !!}</p>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+    </div>
    </section>
         
 
@@ -252,182 +211,184 @@
         <div class="cat-item-container" style="margin-top: 50px">
             <div class="cat-item">
                 <i class="fas fa-building"></i>
-                <p>Politics</p>
+                <a href="{{ route('category.show', 'politics') }}">Politics</a>                
             </div>
         
             <div class="cat-item">
                 <i class="fas fa-paint-brush"></i>
-                <p>Art & Entertainment</p>
+                <a href="{{ route('category.show', 'Arts & Entertainment') }}"> Art & Entertainment </a>
+                <p></p>
             </div>
         
             <div class="cat-item">
                 <i class="fas fa-briefcase"></i>
-                <p>Business</p>
+                <a href="{{ route('category.show', 'business') }}"> Business </a>              
             </div>
         
             <div class="cat-item">
                 <i class="fas fa-comments"></i>
-                <p> Communication </p>
+                <a href="{{ route('category.show', 'communication') }}"> Communication </a>               
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Automobiles </p>
+                <a href="{{ route('category.show', 'automobiles') }}"> Automobiles </a>              
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Agriculture & Farming </p>
+                <a href="{{ route('category.show', 'agriculture&farming') }}">Agriculture & Farming </a>               
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Hotels </p>
+                <a href="{{ route('category.show', 'hotels') }}"> Hotels </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Government </p>
+                <a href="{{ route('category.show', 'government') }}"> Government </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Health & Medicine </p>
+                <a href="{{ route('category.show', 'Health & Medicine') }}"> Health & Medicine </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Hotel & Estate </p>
+                <a href="{{ route('category.show', 'Hotel & Estate') }}">Hotel & Estate </a>  
+                <p>  </p>
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> IT & Computers </p>
+                <a href="{{ route('category.show', 'IT & Computers') }}"> IT & Computers </a>                
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Legal Services </p>
+                <a href="{{ route('category.show', 'Legal Services') }}"> Legal Services </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Merchants </p>
+                <a href="{{ route('category.show', ' Merchants') }}">  Merchants </a>                
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Business Service </p>
+                <a href="{{ route('category.show', 'Business Service') }}"> Business Service </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Engineering </p>
+                <a href="{{ route('category.show', 'Engineering') }}"> Engineering </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Events Conference </p>
+                <a href="{{ route('category.show', 'Events Conference') }}"> Events Conference </a>                
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Energy & Utilities  </p>
+                <a href="{{ route('category.show', 'Energy & Utilities') }}"> Energy & Utilities </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Education & Learning </p>
+                <a href="{{ route('category.show', 'Education & Learning') }}"> Education & Learning </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Car Dealer </p>
+                <a href="{{ route('category.show', 'Car Dealer') }}"> Car Dealer </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Artisans - General Care </p>
+                <a href="{{ route('category.show', 'Artisans - General Care') }}"> Artisans - General Care </a>               
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Security & Emergency </p>
+                <a href="{{ route('category.show', 'Security & Emergency') }}"> Security & Emergency </a>              
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Pet Supply </p>
+                <a href="{{ route('category.show', 'Pet Supply') }}">Pet Supply </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Schools </p>
+                <a href="{{ route('category.show', 'Schools') }}"> Schools </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Sports </p>
+                <a href="{{ route('category.show', 'Sports') }}"> Sports </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Online Influencers  </p>
+                <a href="{{ route('category.show', ' Online Influencers') }}"> Online Influencers </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Personal Care  </p>
+                <a href="{{ route('category.show', 'Personal Care') }}"> Personal Care </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Tourism & Hospitality </p>
+                <a href="{{ route('category.show', 'Tourism & Hospitality') }}"> Tourism & Hospitality </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Fashion & Clothing </p>
+                <a href="{{ route('category.show', 'Fashion & Clothing ') }}"> Fashion & Clothing  </a>                
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Food & Restaurant  </p>
+                <a href="{{ route('category.show', 'Food & Restaurant') }}"> Food & Restaurant </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Companies  </p>
+                <a href="{{ route('category.show', 'Companies ') }}"> Companies  </a>              
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Phone/Laptop </p>
+                <a href="{{ route('category.show', 'Phone/Laptop') }}"> Phone/Laptop </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Religion & Spirituality </p>
+                <a href="{{ route('category.show', 'Religion & Spirituality') }}"> Religion & Spirituality </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p>Shopping  </p>
+                <a href="{{ route('category.show', 'Shopping') }}">Shopping </a>                 
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Transportation </p>
+                <a href="{{ route('category.show', 'Transportation') }}">Transportation </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Non-Profit Organization </p>
+                <a href="{{ route('category.show', 'Non-Profit Organization') }}"> Non-Profit Organization </a>                  
             </div>
     
             <div class="cat-item">
                 <i class="fas fa-car"></i>
-                <p> Online Courses </p>
+                <a href="{{ route('category.show', 'Online Courses') }}"> Online Courses </a>                  
             </div>
     
         </div>

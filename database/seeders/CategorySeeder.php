@@ -8,7 +8,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = ['Nigeria', 'World', 'Politics', 'Business', 'Health', 'Sport', 'Technology', 
-        'Lifestyle', 'Science', 'Opinion', 'Local', 'Weather', 'Information', 'ideas', 'Social', 
+        'Lifestyle', 'Science', 'Opinion', 'Local', 'International', 'Weather', 'Information', 'ideas', 'Social', 
         'Cultural', 'Awards', 'Education & Learning', 'Training', 'Community Events', 'Arts & Entertainment',
         'Communication', 'Automobile', 'Agricultural & Farming', 'Hotels', 'Government', 'Legal Services',
         'Merchant', 'Engineering', 'Events Conference', 'Energy & Utilities', 'Car Dealers', 'Artisans', 

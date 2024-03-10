@@ -12,7 +12,7 @@
             <div class="post">
                 <h2>{{ $post->title }}</h2>
                 @if($post->image)
-                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
                 @endif
                 <p class="meta">
                     Posted on {{ $post->created_at->format('M d, Y') }} by {{ optional($post->author)->name ?? 'E-News Staff' }}
@@ -37,11 +37,13 @@
 </section>
 
 <aside>
-    <h2>Recent News</h2>
+   <!--- <h2>Recent News</h2>-->
     <ul>
         <ul>
+            <!----
             @foreach ($recentPosts as $recentPost)
                 <li>
+                    
                     <a href="{{ route('post.show', $recentPost->id) }}">
                         @if ($recentPost->image)
                         <img src="{{ $post->image }}" alt="{{ $post->title }}">
@@ -51,7 +53,7 @@
                 </li>
             @endforeach
         </ul>
-        
+    -->
     </ul>
 </aside>
 @endsection

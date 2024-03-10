@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Cache; // for caching the exchange rate to avoid 
 use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
+use App\Models\NewsPost;
+use App\Models\Category; 
+use App\Models\Image;
+
+
+use Illuminate\Support\Facades\Storage;
+
 
 class MainController extends Controller
 {
@@ -34,16 +41,19 @@ class MainController extends Controller
     
     public function index()
     {
+        $newsPosts = NewsPost::all();
         $exchangeRate = $this->fetchExchangeRate();
     
+        // Check if there's an error in fetching the exchange rate
         if (isset($exchangeRate['error'])) {
             // Display an error message to the user
             return view('home', ['error' => $exchangeRate['error']]);
         }
     
-        return view('home', ['exchangeRate' => $exchangeRate]);
+        // Pass the exchange rate and news posts to the view
+        return view('home', ['exchangeRate' => $exchangeRate, 'newsPosts' => $newsPosts]);
     }
-
+    
    
      // the index or home page --- to be deleted
      public function base(){
@@ -56,5 +66,8 @@ class MainController extends Controller
         return view('single');
     }
 
+
+
+   
     
 }

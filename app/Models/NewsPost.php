@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class NewsPost extends Model
 {
     protected $fillable = [
-        'title', 'content', 'image', 'is_featured', 'is_trending', 'is_headline', 'category_id',
+        'title', 'content', 'image', 'is_featured', 'is_trending', 'is_headline', 'category_id', 'top_topic',
     ];
 
     // Define relationships if needed

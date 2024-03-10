@@ -37,24 +37,24 @@ class NewsController extends Controller
      
      // Display individual news post
    // Display individual news post
-    public function showPost($id)
-    {
-        $post = NewsPost::with('images')->find($id); // Eager load the 'image' relationship
-        if (!$post) {
-            return view('news.no-news-post');
-        }
-
-        // Fetch recent posts
-        $recentPosts = NewsPost::orderBy('created_at', 'desc')->take(15)->get();
-        // Fetch categories
-        $categories = Category::all(); 
-
-        return view('news.post')
-            ->with('post', $post)
-            ->with('recentPosts', $recentPosts)
-            ->with('categories', $categories);
-    }
-
+   public function showPost($id)
+   {
+       $post = NewsPost::find($id); // Retrieve the news post by ID
+       if (!$post) {
+           return view('news.no-news-post');
+       }
+   
+       // Fetch recent posts
+       $recentPosts = NewsPost::orderBy('created_at', 'desc')->take(8)->get();
+       // Fetch categories
+       $categories = Category::all(); 
+   
+       return view('news.post')
+           ->with('post', $post)
+           ->with('recentPosts', $recentPosts)
+           ->with('categories', $categories);
+   }
+   
 
 
     public function showPostSLUG($slug)
@@ -74,6 +74,7 @@ class NewsController extends Controller
         ->with('recentPosts', $recentPosts)
         ->with('categories', $categories);
 }
+
 
 
 

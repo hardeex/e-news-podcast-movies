@@ -10,10 +10,25 @@
     <div class="not-found">
         <div class="post">
             <h2>{{ $post->title }}</h2>
-            @if ($post->image)
-                <img src="{{ asset($post->image) }}" alt="Post Image">
+            <p class="meta">
+                Posted on: {{ $post->created_at->format('M d, Y') }} by {{ optional($post->author)->name ?? 'E-News Staff' }} 
+                @if($post->category)
+                @if(is_string($post->category))
+                 Category: <a href=""><span class="category">{{ $post->category }}</span> </a> 
+            @else
+                Category: <a href=""> <span class="category">{{ $post->category->name }}</span></a> 
             @endif
-            <div>{!! nl2br(e($post->content)) !!}</div> 
+            
+                @endif
+                Estimated Read Time: <span class="read-time">{{ calculateReadTime($post->content) }} min read</span>
+            </p>
+            <hr>
+            @if($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image" style="margin-top: 1.2rem">
+                @endif
+
+                <div>{!! $post->content !!}</div>
+           
         </div>
         
         
@@ -24,9 +39,15 @@
         <h2>Recent News</h2>
         <ul>
             @foreach ($recentPosts as $recentPost)
-                <li><a href="{{ route('post.show', $recentPost->id) }}">{{ $recentPost->title }}</a></li>
+                <li>
+                    @if($recentPost->image)
+                        <img src="{{ asset('storage/' . $recentPost->image) }}" alt="{{ $recentPost->title }} Image">
+                    @endif
+                    <a href="{{ route('post.show', $recentPost->id) }}" style="font-size: 1.2rem; color: rgb(43, 22, 22); margin-bottom: 20px">{{ $recentPost->title }}</a>
+                </li>
             @endforeach
         </ul>
+        
 
         <br><br>
         <div class="category-list">

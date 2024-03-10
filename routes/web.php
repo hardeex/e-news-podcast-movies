@@ -49,6 +49,7 @@ Route::get('/category/{category}', [NewsController::class, 'showByCategory'])->n
 Route::get('/post/{id}', [NewsController::class, 'showPost'])->name('post.show');
 //Route::get('/post/{slug}', [NewsController::class, 'showPost'])->name('post.show');
 
+
 // Management interface for admin and regular users
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 //Route::resource('admin/news', NewsPostController::class);

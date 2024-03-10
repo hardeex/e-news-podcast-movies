@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\NewsPost;
 use App\Models\Category;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
+
+
 
 
 class NewsPostController extends Controller
@@ -79,7 +82,7 @@ public function upload(Request $request)
              'content' => 'required|string',
              'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
              'category' => 'required|exists:categories,id',
-             // Add more validation rules if needed
+             
          ]);
      
          // Handle file upload
@@ -96,8 +99,8 @@ public function upload(Request $request)
          $newsPost->is_featured = $request->has('is_featured') ? true : false;
          $newsPost->is_trending = $request->has('is_trending') ? true : false;
          $newsPost->is_headline = $request->has('is_headline') ? true : false;
-         $newsPost->category = $categoryName; // Assign category name instead of id
-     
+         $newsPost->top_topic = $request->has('top_topic') ? true : false;
+         $newsPost->category = $categoryName; 
          // Save the news post
          $newsPost->save();
      
@@ -136,29 +139,39 @@ public function upload(Request $request)
     /**
  * Update the specified resource in storage.
  */
-    public function update(Request $request, $id)
-    {
-        $post = NewsPost::findOrFail($id);
-        
-        // Update other fields
-        $post->title = $request->input('title');
-        $post->content = $request->input('content');
-        $post->is_featured = $request->has('is_featured');
-        $post->is_trending = $request->has('is_trending');
-        $post->is_headline = $request->has('is_headline');
-        
-        // Handle file upload
-        if ($request->hasFile('upload_image')) {
-            $image = $request->file('upload_image');
-            $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('images'), $imageName);
-            $post->image = $imageName;
-        }
-        
-        $post->save();
 
-        return redirect()->route('admin.news.index')->with('success', 'News post updated successfully');
-    }
+
+ public function update(Request $request, $id)
+ {
+     $post = NewsPost::findOrFail($id);
+     
+     // Update other fields
+     $post->title = $request->input('title');
+     $post->content = $request->input('content');
+     $post->is_featured = $request->has('is_featured');
+     $post->is_trending = $request->has('is_trending');
+     $post->is_headline = $request->has('is_headline');
+     
+     // Handle file upload
+     if ($request->hasFile('upload_image')) {
+         $image = $request->file('upload_image');
+         $imageName = $image->store('news_images', 'public'); 
+         
+         // Check if there's an existing image and delete it
+         if ($post->image && Storage::disk('public')->exists($post->image)) {
+             Storage::disk('public')->delete($post->image);
+         }
+         
+         $post->image = $imageName;
+     }
+ 
+     $post->save();
+ 
+     return redirect()->route('admin.news.index')->with('success', 'News post updated successfully');
+ }
+ 
+ 
+
 
     /**
      * Remove the specified resource from storage.

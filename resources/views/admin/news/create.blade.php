@@ -80,32 +80,34 @@
     <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
+        <input type="text" id="title" name="title" value="{{ old('title') }}"><br>
         
-        <label for="content"   id="content">Content:</label><br>
-        <textarea name="content" id="editor"></textarea><br>
+        <label for="content">Content:</label><br>
+        <textarea name="content" id="editor">{{ old('content') }}</textarea><br>
        
         <label for="image">Image:</label><br>
         <input type="file" id="image" name="image"><br>
        
         <label for="is_featured">Is Featured:</label>
-        <input type="checkbox" id="is_featured" name="is_featured" value="1"><br>
+        <input type="checkbox" id="is_featured" name="is_featured" value="1" {{ old('is_featured') ? 'checked' : '' }}><br>
         <label for="is_trending">Is Trending:</label>
-        <input type="checkbox" id="is_trending" name="is_trending" value="1"><br>
+        <input type="checkbox" id="is_trending" name="is_trending" value="1" {{ old('is_trending') ? 'checked' : '' }}><br>
         <label for="is_headline">Is Headline:</label>
-        <input type="checkbox" id="is_headline" name="is_headline" value="1"><br>
-
+        <input type="checkbox" id="is_headline" name="is_headline" value="1" {{ old('is_headline') ? 'checked' : '' }}><br>
+        <label for="top_topic">Top Topic:</label>
+        <input type="checkbox" id="top_topic" name="top_topic" value="1" {{ old('top_topic') ? 'checked' : '' }}><br>
+    
        
        
         <label for="category">Category:</label><br>
         <select id="category" name="category">
             @foreach ($categories as $id => $name)
-                <option value="{{ $id }}">{{ $name }}</option>
+                <option value="{{ $id }}" {{ old('category') == $id ? 'selected' : '' }}>{{ $name }}</option>
             @endforeach
         </select><br>
         <button type="submit" style="margin-top: 20px">Create</button>
     </form>
-
+    
     <script>
 
         ClassicEditor
