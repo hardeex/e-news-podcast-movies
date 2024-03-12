@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsPostController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdAndVideoController;
 
 
 /*
@@ -82,6 +83,12 @@ route::post('/admin/news/upload', [NewsPostController::class, 'upload'])->name('
 Route::resource('posts', NewsPostController::class);
 // handling routes for each category
 //Route::get('categories/nigeria', [NewsController::class, 'nigeria'])->name('category.nigeria');
+
+
+
+// HANDLING THE AD AND VIDEO SESSION
+Route::post('/ad-and-video', [AdAndVideoController::class, 'store'])->name('store_ad_and_video');
+Route::get('/ad-and-video', [AdAndVideoController::class, 'index'])->name('show_ad_and_video');
 
 
 
