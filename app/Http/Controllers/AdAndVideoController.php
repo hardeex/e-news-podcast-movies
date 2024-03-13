@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AdAndVideo;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdAndVideoController extends Controller
@@ -17,8 +18,8 @@ class AdAndVideoController extends Controller
      */
     public function index()
     {
-        $adandvideo = AdAndVideo::all();
-        return view('adandvideo.index', compact('adandvideo'));
+        $verticalAds = AdAndVideo::whereNotNull('vertical_ad')->get();
+        return view('adandvideo.index', compact('verticalAds'));
     }
 
     /**
@@ -44,27 +45,39 @@ class AdAndVideoController extends Controller
             'video_link' => 'nullable|url',
         ]);
     
+        // Retrieve the previous ad and video record (if any)
+        $previousAdAndVideo = AdAndVideo::latest()->first();
+    
+        // Handle file uploads and store the paths in variables
+        $verticalAdPath = $request->file('vertical_ad') ? $request->file('vertical_ad')->store('vertical_ads', 'public') : null;
+        $horizontalAdPath = $request->file('horizontal_ad') ? $request->file('horizontal_ad')->store('horizontal_ads', 'public') : null;
+        $videoUploadPath = $request->file('video_upload') ? $request->file('video_upload')->store('video_uploads', 'public') : null;
+    
+        // Delete previous images
+       // Delete previous images if they exist
+        if ($previousAdAndVideo && $previousAdAndVideo->vertical_ad) {
+            Storage::delete($previousAdAndVideo->vertical_ad);
+        }
+        if ($previousAdAndVideo && $previousAdAndVideo->horizontal_ad) {
+            Storage::delete($previousAdAndVideo->horizontal_ad);
+        }
+
+    
         // Store the form data in the database
         $adAndVideo = new AdAndVideo();
         $adAndVideo->title = $validatedData['title'];
-        $adAndVideo->description = $validatedData['description']; // Assign description
-        // Handle file uploads
-        if ($request->hasFile('vertical_ad')) {
-            $adAndVideo->vertical_ad = $request->file('vertical_ad')->store('vertical_ads');
-        }
-        if ($request->hasFile('horizontal_ad')) {
-            $adAndVideo->horizontal_ad = $request->file('horizontal_ad')->store('horizontal_ads');
-        }
-        if ($request->hasFile('video_upload')) {
-            $adAndVideo->video_upload = $request->file('video_upload')->store('video_uploads');
-        }
-        $adAndVideo->video_link = $validatedData['video_link']; // Assign video link
+        $adAndVideo->description = $validatedData['description']; 
+        $adAndVideo->vertical_ad = $verticalAdPath;
+        $adAndVideo->horizontal_ad = $horizontalAdPath;
+        $adAndVideo->video_upload = $videoUploadPath;
+        $adAndVideo->video_link = $validatedData['video_link']; 
     
         $adAndVideo->save();
     
         // Redirect back with success message
         return redirect()->back()->with('success', 'Ad or video added successfully.');
     }
+    
     
     /**
      * Display the specified resource.

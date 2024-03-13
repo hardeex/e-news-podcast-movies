@@ -14,7 +14,8 @@
         <div class="news-header-container">
             <div class="update-and-news-slider">
                 <div class="news-update-slider">
-                    <img src="{{ asset('storage/' . $newsPosts[0]->image) }}" alt="news update" id="slider-img">
+                  
+                     <img src="{{ asset('storage/' . $newsPosts[0]->image) }}" alt="news update" id="slider-img" style="width: 100%; height: 400px;">
                 </div>
                 
                 <script>
@@ -68,15 +69,18 @@
            
                 <!--- show the news headline-->
                 <div class="news-headline">
-                    @foreach($newsPosts as $post)
+                    @foreach($newsPosts->sortByDesc('created_at') as $post)
                     @if($post->is_headline)
                         @if($post->image)
                             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
                         @endif
                         <h2>{{ $post->title }}</h2>
-                        <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 150) !!}</p>
+                        <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 60) !!}</p>
                     @endif
                 @endforeach
+
+       
+
                 
                     </div>
                    
@@ -166,9 +170,24 @@
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi quos totam beatae eius cumque at praesentium vitae porro veritatis, ab delectus 
             </p>
         </div>
+      
         <div class="news-ad">
-            <img src="news/filipino cookbook.jpg" alt="Advertisement">
+            <div class="news-ad">
+                @if($verticalAds->isNotEmpty())
+                @foreach($verticalAds as $ad)
+                    <img src="{{ asset('storage/' . $ad->vertical_ad) }}" alt="Ad">
+                @endforeach
+            @else
+                <p>No vertical ads found.</p>
+            @endif
+            
+            </div>
+            
         </div>
+        
+        
+        
+
     </div>
    </section>
     
@@ -195,7 +214,14 @@
         
 
    <div class="ad-horizontal-views">
-    <img src="news/9.jpeg" alt="Ad banner" style="width:100%">
+        @if($horizontalAds->isNotEmpty())
+        @foreach($horizontalAds as $ad)
+            <img src="{{ asset('storage/' . $ad->horizontal_ad) }}" alt="Ad">
+        @endforeach
+    @else
+        <p>No horizontal ad at the moment.</p>
+    @endif
+
    </div>
 
    <section>

@@ -1,17 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Cache; // for caching the exchange rate to avoid frquent api request
+use Illuminate\Support\Facades\Cache; 
 use Illuminate\Support\Facades\Log;
-
 use Illuminate\Http\Request;
 use App\Models\NewsPost;
 use App\Models\Category; 
 use App\Models\Image;
-
-
+use App\Models\AdAndVideo;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -40,19 +39,32 @@ class MainController extends Controller
     }
     
     public function index()
-    {
-        $newsPosts = NewsPost::all();
-        $exchangeRate = $this->fetchExchangeRate();
+{
+    // Fetch the news
+    $newsPosts = NewsPost::all();
     
-        // Check if there's an error in fetching the exchange rate
-        if (isset($exchangeRate['error'])) {
-            // Display an error message to the user
-            return view('home', ['error' => $exchangeRate['error']]);
-        }
+    // Fetch the exchange rate
+    $exchangeRate = $this->fetchExchangeRate();
     
-        // Pass the exchange rate and news posts to the view
-        return view('home', ['exchangeRate' => $exchangeRate, 'newsPosts' => $newsPosts]);
+    // Fetch the vertical ads
+    $verticalAds = AdAndVideo::whereNotNull('vertical_ad')->get();
+    $horizontalAds = AdAndVideo::whereNotNull('horizontal_ad')->get();
+    
+    // Check if there's an error in fetching the exchange rate
+    if (isset($exchangeRate['error'])) {
+        // Display an error message to the user
+        return view('home', ['error' => $exchangeRate['error']]);
     }
+    
+    // Pass the derived data to the view
+    return view('home', [
+        'exchangeRate' => $exchangeRate, 
+        'newsPosts' => $newsPosts,
+        'verticalAds' => $verticalAds,
+        'horizontalAds' => $horizontalAds,
+    ]);
+}
+
     
    
      // the index or home page --- to be deleted

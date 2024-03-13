@@ -34,7 +34,7 @@ input[type="url"] {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: darkred;
     color: white;
     padding: 0.5rem 1rem;
     border: none;
@@ -57,13 +57,19 @@ button[type="submit"]:hover {
       <h2 style="margin-bottom: 5rem">Dashboard</h2>
       <ul>
         <li><a href="#" class="tablinks" onclick="openTab(event, 'view-website')">View Website</a></li>
-        <li><a href="{{ route('admin.news.index') }}" target="_blank">Manage Posts</a></li>
+        <li><a href="{{ route('admin.news.index') }}" target="_blank"> Manage Posts</a></li>
         <li><a href="{{ route('admin.news.create') }}" target="_blank">Create New Post</a></li>
-        <li><a href="#" class="tablinks" onclick="openTab(event, 'ads')"> Manage Ad & Live Video</a></li>      
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'ads')"> Manage Ad & Live Video </a></li>  
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'remembrance')"> Manage Remembrance </a></li>  
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Entertainment </a></li>   
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Pride of Nigeria </a></li>  
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Short Videos </a></li>  
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Manage Group </a></li>    
       </ul>
     </div>
   
     <div class="content">
+      
       <div id="view-website" class="tabcontent" style="display: block;">
         <h2>Visit Website</h2>
         <iframe src="{{ route('index') }}" frameborder="0" width="100%" height="500"></iframe>
@@ -72,8 +78,8 @@ button[type="submit"]:hover {
       <div id="ads" class="tabcontent" style="display: none;">
         <h2> Ads & Live Video </h2>
         <div class="ads-and-video">
-         
-          <form action="{{ route('store_ad_and_video') }}" method="POST" enctype="multipart/form-data">
+        
+        <form action="{{ route('store_ad_and_video') }}" method="POST" enctype="multipart/form-data">
             @csrf
         
             <label for="title">Title:</label><br>
@@ -115,8 +121,6 @@ button[type="submit"]:hover {
             <button type="submit">Submit</button>
         </form>
         
-        
-          
         </div>
       </div>
     </div>

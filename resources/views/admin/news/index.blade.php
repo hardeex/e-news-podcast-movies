@@ -13,6 +13,31 @@
             padding: 20px;
         }
 
+        .manager-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        
+
+        .manager-header a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 16px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .manager-header a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+       
        
         h2 {
             font-size: 24px;
@@ -82,6 +107,15 @@
 
         /* Responsive styles */
         @media (max-width: 768px) {
+
+            .manager-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .manager-header a {
+                margin-top: 10px;
+            }
            
             tr {
                 display: block;
@@ -110,11 +144,17 @@
             .actions button {
                 margin: 5px;
             }
+
+            
         }
     </style>
 </head>
 <body>
-    <h2>MANAGE PUBLISHED POSTS</h2>
+    <div class="manager-header">
+        <h2>MANAGE PUBLISHED POSTS</h2>
+        <a href="{{ route('admin.news.create') }}" target="_blank">Submit A Post News</a>
+    </div>
+    
 
     <div class="search-container">
         <input type="search" name="search" id="search" placeholder="Search..." onkeyup="searchTable()">
