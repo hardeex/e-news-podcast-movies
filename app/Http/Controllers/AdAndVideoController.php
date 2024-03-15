@@ -62,6 +62,10 @@ class AdAndVideoController extends Controller
             Storage::delete($previousAdAndVideo->horizontal_ad);
         }
 
+        if ($previousAdAndVideo && $previousAdAndVideo->video_upload) {
+            Storage::delete($previousAdAndVideo->video_upload);
+        }
+
     
         // Store the form data in the database
         $adAndVideo = new AdAndVideo();

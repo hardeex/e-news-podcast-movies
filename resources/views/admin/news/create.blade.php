@@ -51,9 +51,8 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-        input[type="checkbox"] {
-            margin-bottom: 10px;
-        }
+
+      
         button[type="submit"] {
             background-color: #007bff;
             color: #fff;
@@ -86,16 +85,23 @@
         <textarea name="content" id="editor">{{ old('content') }}</textarea><br>
        
         <label for="image">Image:</label><br>
-        <input type="file" id="image" name="image"><br>
+        <input type="file" id="image" name="image"><br> <br><br>
        
-        <label for="is_featured">Is Featured:</label>
-        <input type="checkbox" id="is_featured" name="is_featured" value="1" {{ old('is_featured') ? 'checked' : '' }}><br>
-        <label for="is_trending">Is Trending:</label>
-        <input type="checkbox" id="is_trending" name="is_trending" value="1" {{ old('is_trending') ? 'checked' : '' }}><br>
-        <label for="is_headline">Is Headline:</label>
-        <input type="checkbox" id="is_headline" name="is_headline" value="1" {{ old('is_headline') ? 'checked' : '' }}><br>
-        <label for="top_topic">Top Topic:</label>
-        <input type="checkbox" id="top_topic" name="top_topic" value="1" {{ old('top_topic') ? 'checked' : '' }}><br>
+        <div class="checkbox" style="display: flex; justify-content:space-evenly ">
+            <label for="is_featured" >Is Featured:</label>  
+            <input type="checkbox" id="is_featured" name="is_featured" value="1" {{ old('is_featured') ? 'checked' : '' }}><br>
+        
+            <label for="is_trending">Is Trending:</label>
+            <input type="checkbox" id="is_trending" name="is_trending" value="1" {{ old('is_trending') ? 'checked' : '' }}><br>
+            
+            <label for="is_headline">Is Headline:</label>
+            <input type="checkbox" id="is_headline" name="is_headline" value="1" {{ old('is_headline') ? 'checked' : '' }}><br>
+        
+            <label for="top_topic">Top Topic:</label>
+            <input type="checkbox" id="top_topic" name="top_topic" value="1" {{ old('top_topic') ? 'checked' : '' }}><br>
+        </div><br><br>
+        
+        
     
        
        

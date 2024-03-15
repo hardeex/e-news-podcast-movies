@@ -1,6 +1,6 @@
 @extends('base.base')
 
-@section('title', $category)
+@section('title', $category->name)
 
 @section('page-content')
 <section>
@@ -26,7 +26,7 @@
                     @endif
                     <span class="read-time">{{ calculateReadTime($post->content) }} min read</span>
                 </p>
-                <p class="excerpt">{{ Illuminate\Support\Str::limit($post->content, 80) }}</p>
+                <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 120) !!}</p>
                 <a href="{{ route('post.show', $post->id) }}" class="read-more">Read more</a>
                 <!-- I intend to link social media here -->
             </div>

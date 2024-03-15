@@ -56,7 +56,7 @@
         <input type="checkbox" id="is_headline" name="is_headline" {{ $post->is_headline ? 'checked' : '' }}><br>
 
         <label for="top_topic">Top Topic:</label>
-        <input type="checkbox" id="top_topic" name="top_topic" {{ $post->is_headline ? 'checked' : '' }}><br>
+        <input type="checkbox" id="top_topic" name="top_topic" {{ $post->top_topic ? 'checked' : '' }}><br>
         
         <button type="submit">Update</button>
     </form>

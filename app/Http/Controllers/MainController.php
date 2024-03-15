@@ -41,7 +41,8 @@ class MainController extends Controller
     public function index()
 {
     // Fetch the news
-    $newsPosts = NewsPost::all();
+    $newsPosts = NewsPost::all(); 
+    $liveDesc = AdAndVideo::all();
     
     // Fetch the exchange rate
     $exchangeRate = $this->fetchExchangeRate();
@@ -49,6 +50,7 @@ class MainController extends Controller
     // Fetch the vertical ads
     $verticalAds = AdAndVideo::whereNotNull('vertical_ad')->get();
     $horizontalAds = AdAndVideo::whereNotNull('horizontal_ad')->get();
+    $liveVideos = AdAndVideo::whereNotNull('video_upload')->get();
     
     // Check if there's an error in fetching the exchange rate
     if (isset($exchangeRate['error'])) {
@@ -62,6 +64,8 @@ class MainController extends Controller
         'newsPosts' => $newsPosts,
         'verticalAds' => $verticalAds,
         'horizontalAds' => $horizontalAds,
+        'liveVideos' => $liveVideos,
+        'liveDesc' => $liveDesc,
     ]);
 }
 

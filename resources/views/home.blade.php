@@ -14,13 +14,12 @@
         <div class="news-header-container">
             <div class="update-and-news-slider">
                 <div class="news-update-slider">
-                  
-                     <img src="{{ asset('storage/' . $newsPosts[0]->image) }}" alt="news update" id="slider-img" style="width: 100%; height: 400px;">
+                    <img src="{{ asset('storage/' . $newsPosts[0]->image) }}" alt="news update" id="slider-img" style="width: 100%; height: 400px;">
                 </div>
                 
                 <script>
                     var storeSliderImages = [
-                        @foreach($newsPosts as $post)
+                        @foreach($newsPosts->sortByDesc('created_at') as $post)
                             "{{ asset('storage/' . $post->image) }}",
                         @endforeach
                     ];
@@ -43,6 +42,7 @@
                     // Start the slider
                     slider();
                 </script>
+                
                 
     
                 <div class="news-category-container">
@@ -104,7 +104,7 @@
             $localPostsExist = false;
         @endphp
         
-        @foreach($newsPosts as $post)
+        @foreach($newsPosts->sortByDesc('created_at')->take(15) as $post)
             @if($post->category == 'Local')
                 <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
                 @php
@@ -128,7 +128,7 @@
             $localPostsExist = false;
         @endphp
         
-        @foreach($newsPosts as $post)
+        @foreach($newsPosts->sortByDesc('created_at')->take(15) as $post)
             @if($post->category == 'International')
                 <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
                 @php
@@ -162,12 +162,28 @@
         </div>
         <div class="live-video">
             <button disabled><i class="fas fa-play"></i> Live TV</button>
-            <video controls  >
-                <source src="news/Lagos State Government Initiates Removal Of Illegal Structures In Ijora.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            
+          @if ($liveVideos->isNotEmpty())
+              @foreach($liveVideos as $video)
+                <div class="video-container">
+                    <video controls>
+                        <source src="{{ asset('storage/' . $video->video_upload) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                @endforeach
+                @else
+                    <p> No Live Event at the moment </p>
+          @endif
+                
             <p style="font-weight: 600">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi quos totam beatae eius cumque at praesentium vitae porro veritatis, ab delectus 
+                @foreach($liveDesc->sortByDesc('created_at') as $desc)
+                @if($desc->desc)
+                    <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($desc->desc), 60) !!}</p>
+                @endif                                   
+            @endforeach
+            
+              
             </p>
         </div>
       
@@ -193,23 +209,29 @@
     
    <section>
      <!--- TOP TOPIC NEWS CATEGORIES SECTION ==== -->
-   <div class="e-news-topics">
-    <h3 >Top Topics</h3> 
-    <div class="top-topics-container">
-        @foreach($newsPosts as $post)
-            @if($post->top_topic)
-                <div class="top-topic-item">
-                    @if($post->image)
-                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
-                    @endif
-                    <div class="top-topic-desc">
-                        <h2>{{ $post->title }}</h2>
-                        <p>{!! Illuminate\Support\Str::words(strip_tags($post->content), 30) !!}</p>
-                    </div>
+     <div class="e-news-topics">
+        <h3>Top Topics</h3> 
+        <div class="top-topics-container">
+            @foreach($newsPosts->sortByDesc('created_at') as $post)
+                @if($post->top_topic)
+                <div class="top-topic">
+                    <a href="{{ route('post.show', $post->id) }}" class="top-topic-link">
+                        @if($post->image)
+                        <div class="top-topic-image">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                        </div>
+                        @endif
+                        <div class="top-topic-content">
+                            <h2 class="top-topic-title">{{ $post->title }}</h2>
+                            <p class="top-topic-excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 80) !!}</p>
+                        </div>
+                    </a>
                 </div>
-            @endif
-        @endforeach
+                @endif
+            @endforeach    
+        </div>
     </div>
+    
    </section>
         
 
@@ -432,232 +454,91 @@
         <div class="entertainment-news">
             <div class="get-entertainment-update">
                 <div class="featured-news">
-                    <img src="news/judah.jpeg" alt="">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi facere nesciunt dolorem ipsa minima eius inventore optio expedita rerum unde, mollitia iusto, cum eum placeat ipsam dolor.</p>
-                    <button type="submit">See More</button>
+                    @php
+                    $isEntertainment = false;
+                @endphp
+                
+                @foreach($newsPosts->sortByDesc('created_at')->take(10) as $post)
+                    @if($post->category == 'Entertainment')
+                                        
+                            @if($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                            @endif
+                            <h2><a href="{{ route('post.show', $post->id) }}" class="featured-news-item">{{ $post->title }}</a></h2>      
+                           
+                            <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 50) !!}</p>
+                            @php
+                                $isEntertainment = true;
+                            @endphp
+                        </a>
+                    @endif
+                @endforeach
+                
+                
+                  
+                
+                    <button type="submit"> <a href="{{ route('category.show', 'entertainment') }}" style="color:white;">See More </a> </button>
                 </div>
+                
                 <div class="more-news">
-                   <div class="more-news-item">
-                    <img src="news/olamide.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
+                  
+        <div class="featured-news-item">
+           
+        </div>
+
 
                    <div class="more-news-item">
-                    <img src="news/olami2.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
+                        @foreach($newsPosts->sortByDesc('created_at') as $post)
+                        @if($post->category == 'Music' && $post->is_headline)
+                           
+                                @if($post->image)
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image" >
+                                @endif
+                                <h2><a href="{{ route('post.show', $post->id) }}" >{{ $post->title }}</a></h2>   
+                                
+                                <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 30) !!}</p>
+                           
+                        @endif
+                    @endforeach
                    </div>
 
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
+                   
 
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
+                 
 
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
 
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
+                  
 
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
-
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
-
-                   <div class="more-news-item">
-                    <img src="news/music-cover.jpeg" alt="">
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ex excepturi
-                    </p>
-                   </div>
+                  
                 </div>
             </div>
             <div class="music-news">
                 <h3>Music News</h3>
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
                 
                 <div class="music-news-item">
+                    @foreach($newsPosts->sortByDesc('created_at') as $post)
+                    @if($post->category == 'Music')
                     <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
+                        @if($post->image)
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image" >
+                                @endif
                         <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <h4><a href="{{ route('post.show', $post->id) }}" >{{ $post->title }}</a></h4>   
+                                
+                                <p class="excerpt">{!! Illuminate\Support\Str::words(strip_tags($post->content), 30) !!}</p>
+                                @endif
+                                @endforeach
                         </div>
                     </div>
-                </div>
+                </div>               
 
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-news-item">
-                    <div class="music-news-content">
-                        <img src="news/3.jpg" alt="News category">
-                        <div class="music-news-desc">
-                            <h4>Healthy Living</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         
     </section>
    </div>
    
+   <!--
    <div class="recent-movie-container">
         <div class="movie-title">
             <p style="font-size: 2rem">Movie Title</p>
@@ -673,129 +554,28 @@
             <button type="submit">See Movies</button>
         </div>
    </div>
+---->
+
 
    <div class="display-movies">
         <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>
+
+            @foreach($newsPosts->sortByDesc('created_at') as $post)
+                @if($post->category == 'Music')
+                @if($post->image)
+                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image" >
+            @endif
+            <h4 style="word-wrap: break-word; width: 200px;"><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h4>
+
+
+            @endif
+            @endforeach
             
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
-
-        <div class="movie-item">
-            <a href="">
-                <img src="news/movie3.jpeg" alt="Movies Cover Image">
-                <p>Movie Title</p>
-            </a>            
-        </div>
+        </div> 
+        
    </div>
 
+<!--
    <div class="display-music">
         <div class="music-item">
             <img src="news/music-cover.jpeg" alt="Music Cover Image">
@@ -917,6 +697,7 @@
             </a>                    
         </div>
    </div>
+   --->
    <section>
         <button type="submit" style="padding: 10px">See More Music</button>
    </section>

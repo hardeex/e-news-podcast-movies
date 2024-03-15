@@ -107,7 +107,7 @@ button[type="submit"]:hover {
             @enderror<br>
         
             <label for="video_upload">Video Upload:</label><br>
-            <input type="file" id="video_upload" name="video_upload">
+            <input type="file" id="video_upload" name="video_upload" accept="video/mp4, video/mov, video/avi">
             @error('video_upload')
                 <div class="error">{{ $message }}</div>
             @enderror<br>
