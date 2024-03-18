@@ -10,7 +10,8 @@ class CategorySeeder extends Seeder
         // Delete existing categories
         Category::truncate();
 
-        $categories = ['Nigeria', 'World', 'Politics', 'Business', 'Health', 'Sport', 'Technology', 
+        $categories = ['Nigeria', 'World', 'Politics', 'Business', 'Health', 'Remembrance', 'Memorial', 'Condolescence', 'Obituary', 
+        'Politician', 'Sport', 'Technology', 
         'Lifestyle', 'Music', 'Science', 'Opinion', 'Local', 'International', 'Weather', 'Movie', 'Pride of Nigeria', 'Entertainment', 'Information', 'ideas', 'Social', 
         'Cultural', 'Awards', 'Education & Learning', 'Training', 'Community Events', 'Arts & Entertainment',
         'Communication', 'Automobile', 'Agricultural & Farming', 'Hotels', 'Government', 'Legal Services',

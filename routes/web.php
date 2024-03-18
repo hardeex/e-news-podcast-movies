@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsPostController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdAndVideoController;
+use App\Http\Controllers\ShortVideoController;
 
 
 /*
@@ -91,6 +92,11 @@ Route::post('/ad-and-video', [AdAndVideoController::class, 'store'])->name('stor
 Route::get('/ad-and-video', [AdAndVideoController::class, 'index'])->name('show_ad_and_video');
 
 
+
+// short video route handling
+//Route::get('/short_videos', [ShortVideoController::class, 'index'])->name('short_videos.index');
+//Route::get('/short_videos/create', [ShortVideoController::class, 'create'])->name('short_videos.create');
+Route::post('/short_videos', [ShortVideoController::class, 'store'])->name('short_videos.store');
 
 
 

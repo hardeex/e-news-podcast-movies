@@ -8,7 +8,7 @@
         <p>No news posts available for this category.</p>
     @else
         <div class="post-grid">
-            @foreach ($newsPosts as $post)
+            @foreach ($newsPosts->sortByDesc('created_at') as $post)
             <div class="post">
                 <h2>{{ $post->title }}</h2>
                 @if($post->image)

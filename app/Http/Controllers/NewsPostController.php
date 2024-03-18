@@ -82,6 +82,8 @@ public function upload(Request $request)
              'content' => 'required|string',
              'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
              'category' => 'required|exists:categories,id',
+             'deceased_name' => 'nullable|string|max:255',
+             'age' => 'nullable|integer',
              
          ]);
      
@@ -96,6 +98,8 @@ public function upload(Request $request)
          $newsPost->title = $validatedData['title'];
          $newsPost->content = $validatedData['content'];
          $newsPost->image = $imagePath;
+         $newsPost->deceased_name = $validatedData['deceased_name'];
+         $newsPost->age = $validatedData['age'];
          $newsPost->is_featured = $request->has('is_featured') ? true : false;
          $newsPost->is_trending = $request->has('is_trending') ? true : false;
          $newsPost->is_headline = $request->has('is_headline') ? true : false;

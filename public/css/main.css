@@ -905,11 +905,16 @@ footer{
 }
 
 .pride-txt {
-    display: flex;
-    justify-content: space-between;
+   
     align-items: center;
     border: 1px solid black;
     background-color: white;
+}
+
+.pride-txt h4{
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: capitalize;
 }
 
 .pride-excerpt {
@@ -960,18 +965,14 @@ footer{
 
 
 /* ===== SHORT VIDEO DESCRIPTION ==== */
-
-.short-video-container {
-    position: relative; 
-}
-
 .short-video-header {
     display: flex;
     justify-content: space-between;
 }
 
 .short-video-header button {
-    width: 200px;
+    width: 80px;
+    height: 50px !important;
     padding: 0 !important;
     margin: 0 !important;
     padding: 5px 10px; 
@@ -979,22 +980,21 @@ footer{
 
 .short-video-container {
     overflow-x: auto;
-    white-space: nowrap; 
+    white-space: nowrap;
     padding: 20px 0;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
-
 
 .short-video-item {
     position: relative;
     display: inline-block;
     width: 300px;
-    margin: 20px;   
+    margin: 0 20px; /* Adjusted margin */
 }
 
 .short-video-item video {
     width: 100%;
-    height: 400px;
+    height: auto; /* Changed height to auto for responsive sizing */
     object-fit: cover;
 }
 
@@ -1008,41 +1008,51 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0; /* Hide initially */
+    transition: opacity 0.3s; /* Add transition effect */
+}
+
+.short-video-item:hover .video-overlay {
+    opacity: 1; /* Show on hover */
 }
 
 .play-button {
-    width: 40px;
-    height: 40px;
+    width: 80px; /* Increased button size */
+    height: 80px; /* Increased button size */
     background-image: url('../news/play-button.png');
     background-size: cover;
     border: none;
     cursor: pointer;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 50%; /* Round button */
 }
 
 .play-button:hover {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.6); /* Lighter background on hover */
 }
 
 .video-stats {
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0; 
+    right: 0;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    background-color: transparent; 
-    z-index: 1; 
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .video-stats .likes,
 .video-stats .views {
-    background-color: rgba(0, 0, 0, 0.7); 
-    padding: 2px 8px; 
-    border-radius: 5px; 
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.video-stats .likes i,
+.video-stats .views i {
+    margin-right: 5px; /* Added margin between icon and text */
 }
 
 

@@ -165,6 +165,7 @@
             <tr>
                 <th>S/N</th>
                 <th>News Title</th>
+                <th>Category</th>
                 <th class="actions">Actions</th>
             </tr>
         </thead>
@@ -173,7 +174,9 @@
                 <tr id="post{{ $key + 1 }}">
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $post->title }}</td>
+                    <td>{{ $post->category }}</td>
                     <td class="actions">
+                        <a href="{{ route('post.show', $post->id) }}" style="background-color: darkgreen; color: white; padding:8px">View</a>
                         <a href="{{ route('admin.news.edit', $post->id) }}">Edit</a>
                         <form action="{{ route('admin.news.destroy', $post->id) }}" method="POST">
                             @csrf

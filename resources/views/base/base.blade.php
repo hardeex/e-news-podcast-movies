@@ -130,7 +130,10 @@
                     <div class="footer-links">
                         <div class="about-us-footer">
                             <h3>About Us</h3>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates unde iste id pariatur corporis, doloribus aliquid deserunt iusto. Quos, distinctio beatae. Ipsum minus rerum fuga aliquid veritatis. Dolor, vero aperiam!</p>
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates unde iste id pariatur corporis, 
+                                doloribus aliquid deserunt iusto. Quos, distinctio beatae. Ipsum minus rerum fuga aliquid veritatis. 
+                                Dolor, vero aperiam!</p>
                             <button>Learn More</button>
                         </div>
 
@@ -138,12 +141,26 @@
                             <div class="link-item">
                                 <h5>World</h5>
                                 <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
+                                    <li>
+                                        @php
+                                        $WorldPostsExist = false;
+                                    @endphp
+                                    
+                                    @foreach($newsPosts->sortByDesc('created_at')->take(5) as $post)
+                                        @if($post->category == 'World')
+                                            <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                                            @php
+                                                $WorldPostsExist = true;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                    
+                                    @if(!$WorldPostsExist)
+                                        <p>No posts available for this category yet</p>
+                                    @endif
+                                    
+                                    </li>
+                                   
                                 </ul>
                             </div>
 

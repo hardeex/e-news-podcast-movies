@@ -59,11 +59,8 @@ button[type="submit"]:hover {
         <li><a href="#" class="tablinks" onclick="openTab(event, 'view-website')">View Website</a></li>
         <li><a href="{{ route('admin.news.index') }}" target="_blank"> Manage Posts</a></li>
         <li><a href="{{ route('admin.news.create') }}" target="_blank">Create New Post</a></li>
-        <li><a href="#" class="tablinks" onclick="openTab(event, 'ads')"> Manage Ad & Live Video </a></li>  
-        <li><a href="#" class="tablinks" onclick="openTab(event, 'remembrance')"> Manage Remembrance </a></li>  
-        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Entertainment </a></li>   
-        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Pride of Nigeria </a></li>  
-        <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Short Videos </a></li>  
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'ads')"> Manage Ad & Live Video </a></li>               
+        <li><a href="#" class="tablinks" onclick="openTab(event, 'short-video')"> Short Videos </a></li>  
         <li><a href="#" class="tablinks" onclick="openTab(event, 'entertainment')"> Manage Group </a></li>    
       </ul>
     </div>
@@ -74,6 +71,7 @@ button[type="submit"]:hover {
         <h2>Visit Website</h2>
         <iframe src="{{ route('index') }}" frameborder="0" width="100%" height="500"></iframe>
       </div>
+      <!---- End of the view website section-->
   
       <div id="ads" class="tabcontent" style="display: none;">
         <h2> Ads & Live Video </h2>
@@ -119,6 +117,42 @@ button[type="submit"]:hover {
             @enderror<br>
         
             <button type="submit">Submit</button>
+        </form>
+        
+        </div>
+      </div>
+      <!---- end of the advid section -->
+      
+      <div id="short-video" class="tabcontent" style="display: none;">
+        <h2> SHORT VIDEO </h2>
+        <div class="ads-and-video">
+        
+        <form action="{{ route('short_videos.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+        
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" value="{{ old('title') }}">
+            @error('title')
+                <div class="error">{{ $message }}</div>
+            @enderror<br>
+            
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description">{{ old('description') }}</textarea>
+            @error('description')
+                <div class="error">{{ $message }}</div>
+            @enderror<br>
+        
+            
+        
+            <label for="short_video">Video Upload:</label><br>
+            <input type="file" id="short_video" name="short_video" accept="video/mp4, video/mov, video/avi">
+            @error('short_video')
+                <div class="error">{{ $message }}</div>
+            @enderror<br>
+        
+           
+        
+            <button type="submit">Upload</button>
         </form>
         
         </div>

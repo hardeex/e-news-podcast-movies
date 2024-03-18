@@ -41,7 +41,7 @@ class AdAndVideoController extends Controller
             'description' => 'nullable|string',
             'vertical_ad' => 'nullable|image|max:2048', 
             'horizontal_ad' => 'nullable|image|max:2048', 
-            'video_upload' => 'nullable|file|mimes:mp4,mov,avi|max:20480', 
+            'video_upload' => 'nullable|file|mimes:mp4,mov,avi|max:30480', 
             'video_link' => 'nullable|url',
         ]);
     
@@ -70,14 +70,16 @@ class AdAndVideoController extends Controller
         // Store the form data in the database
         $adAndVideo = new AdAndVideo();
         $adAndVideo->title = $validatedData['title'];
-        $adAndVideo->description = $validatedData['description']; 
+        $adAndVideo->description = $validatedData['description'];
         $adAndVideo->vertical_ad = $verticalAdPath;
         $adAndVideo->horizontal_ad = $horizontalAdPath;
         $adAndVideo->video_upload = $videoUploadPath;
-        $adAndVideo->video_link = $validatedData['video_link']; 
-    
+        
+        // Check if 'video_link' key exists in $validatedData before accessing it
+        $adAndVideo->video_link = isset($validatedData['video_link']) ? $validatedData['video_link'] : null;
+        
         $adAndVideo->save();
-    
+        
         // Redirect back with success message
         return redirect()->back()->with('success', 'Ad or video added successfully.');
     }

@@ -42,6 +42,7 @@
             font-weight: bold;
         }
         input[type="text"],
+        input[type="number"],
         textarea,
         select {
             width: 100%;
@@ -86,6 +87,14 @@
        
         <label for="image">Image:</label><br>
         <input type="file" id="image" name="image"><br> <br><br>
+        
+        <!---- Handlng other section of REMEMBRANCE PART OF THE PAGE --->
+        <label for="deceased_name">Name of the Deceased</label>
+        <input type="text" name="deceased_name" id="deceased_name" value="{{ old('deceased_name') }}"><br>
+
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" value="{{ old('age') }}"> <br>
+        <br><br>
        
         <div class="checkbox" style="display: flex; justify-content:space-evenly ">
             <label for="is_featured" >Is Featured:</label>  

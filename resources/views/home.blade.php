@@ -14,7 +14,9 @@
         <div class="news-header-container">
             <div class="update-and-news-slider">
                 <div class="news-update-slider">
+                @if ($newsPosts)
                     <img src="{{ asset('storage/' . $newsPosts[0]->image) }}" alt="news update" id="slider-img" style="width: 100%; height: 400px;">
+                @endif
                 </div>
                 
                 <script>
@@ -43,6 +45,7 @@
                     slider();
                 </script>
                 
+           
                 
     
                 <div class="news-category-container">
@@ -68,6 +71,7 @@
 
            
                 <!--- show the news headline-->
+           
                 <div class="news-headline">
                     @foreach($newsPosts->sortByDesc('created_at') as $post)
                     @if($post->is_headline)
@@ -92,7 +96,7 @@
             
             <!-- end of the news-container-headline-->
         </div>
-    
+  
     </section>
 
    <section>
@@ -104,6 +108,7 @@
             $localPostsExist = false;
         @endphp
         
+     
         @foreach($newsPosts->sortByDesc('created_at')->take(15) as $post)
             @if($post->category == 'Local')
                 <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
@@ -113,15 +118,16 @@
             @endif
         @endforeach
         
+        
         @if(!$localPostsExist)
             <p>No post available for this category yet</p>
         @endif
         
         </div>
-        
+   
         
        
-        
+   
         <div class="international-gist">
             <h3>Hot International Gists</h3>
             @php
@@ -140,7 +146,7 @@
         @if(!$localPostsExist)
             <p>No post available for this category yet</p>
         @endif
-        
+     
         </div>
     </div>
 
@@ -150,19 +156,21 @@
      <!---- ==== TEXT< VIDEO AND AD ECTION ===----->
      <div class="txt-vid-ad-section">
         <div class="txt-news">
+       
             <div class="international-gist">
                 <h3>Topics</h3>
                 @foreach($newsPosts->take(10) as $post)
                     <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
                 @endforeach
             
-            
+        
                          
             </div>
         </div>
         <div class="live-video">
             <button disabled><i class="fas fa-play"></i> Live TV</button>
             
+    
           @if ($liveVideos->isNotEmpty())
               @foreach($liveVideos as $video)
                 <div class="video-container">
@@ -175,7 +183,9 @@
                 @else
                     <p> No Live Event at the moment </p>
           @endif
-                
+      
+        
+
             <p style="font-weight: 600">
                 @foreach($liveDesc->sortByDesc('created_at') as $desc)
                 @if($desc->desc)
@@ -183,7 +193,7 @@
                 @endif                                   
             @endforeach
             
-              
+       
             </p>
         </div>
       
@@ -706,34 +716,36 @@
     <h2>PRIDE OF NIGERIA</h2>
     <i class="fas fa-star">  Award  </i> <i class="fas fa-star">  </i>
     <section>
+       
         <div class="show-pride-items">
             <div class="pride-item">
-                <img src="news/pride.jpeg" alt="">
-                <div class="pride-txt">
-                    <h4>Pride Title</h4>
-                    <p id="pride-type">This Morning Emergency Service</p>
-                </div>
-                <p class="pride-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius similique aperiam, ipsam iure, corporis maiores magni maxime voluptates saepe nemo temporibus tenetur fuga necessitatibus possimus nihil aliquid accusantium dolor fugit?</p>
+                @php
+                    $isPrideofNigeriaExist = false;
+                @endphp
+            
+                @foreach($newsPosts->sortByDesc('created_at')->take(10) as $post)
+                    @if($post->category == 'Pride of Nigeria')                                                   
+                        @if($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                        @endif
+                        <div class="pride-txt">
+                            <!---<p id="pride-type">This Morning Emergency Service</p>-->
+                            <h4><a href="{{ route('post.show', $post->id) }}" >{{ $post->title }}</a></h4> 
+                        </div>
+                        <p class="pride-excerpt">
+                            {!! Illuminate\Support\Str::words(strip_tags($post->content), 50) !!}
+                        </p>
+                        @php
+                            $isPrideofNigeriaExist = true;
+                        @endphp
+                    @endif
+                @endforeach
+            
+                @if(!$isPrideofNigeriaExist)
+                    <p>No post available for this category yet</p>
+                @endif
             </div>
-
-                    
-            <div class="pride-item">
-                <img src="news/pride.jpeg" alt="">
-                <div class="pride-txt">
-                    <h4>Pride Title</h4>
-                    <p id="pride-type">This Morning Emergency Service</p>
-                </div>
-                <p class="pride-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius similique aperiam, ipsam iure, corporis maiores magni maxime voluptates saepe nemo temporibus tenetur fuga necessitatibus possimus nihil aliquid accusantium dolor fugit?</p>
-            </div>
-        
-            <div class="pride-item">
-                <img src="news/pride.jpeg" alt="">
-                <div class="pride-txt">
-                    <h4>Pride Title</h4>
-                    <p id="pride-type">This Morning Emergency Service</p>
-                </div>
-                <p class="pride-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius similique aperiam, ipsam iure, corporis maiores magni maxime voluptates saepe nemo temporibus tenetur fuga necessitatibus possimus nihil aliquid accusantium dolor fugit?</p>
-            </div>
+            
         </div>
      <button type="submit" id="pride-btn">Pride of Nigeria</button>           
     </section>
@@ -786,179 +798,40 @@
             <h2>Short Videos</h2>
             <button type="submit">See All</button>
         </div>
-    <div class="short-video-container">
-        
-    
+       <div class="short-video-container">
         <div class="short-video-row">
+            @foreach($shortVideos as $video)
             <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
+                <!-- Video player -->
+                <div class="video-overlay">
+                    <button class="play-button"></button>
                 </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
+                <video controls>
+                    <source src="{{ asset('storage/' . $video->video_path) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- Likes and views count -->
+                <div class="video-stats">
+                    <div>
+                        <i class="fas fa-heart"></i>
+                        <span class="likes">{{ $video->likes }}</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-eye"></i>
+                        <span class="views">{{ $video->views }}</span>
+                    </div>
+                </div>
+                <!-- Video title and description -->
+                <h3>{{ $video->title }}</h3>
+                <p>{{ $video->description }}</p>
+            </div>
+            @endforeach
         </div>
 
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
+     
+    </div>
     
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-
-        <div class="short-video-item">
-            <div class="video-overlay">
-                <button class="play-button"></button>
-            </div>
-            <video controls  loop onplay="hideOverlay(this)" onpause="showOverlay(this)">
-                <source src="news/night.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="video-stats">
-                <div>
-                    <i class="fas fa-heart"></i>
-                    <span class="likes">100</span>
-                </div>
-    
-                <div>
-                    <i class="fas fa-eye"></i>
-                    <span class="views">1K </span>
-                </div>    
-            </div>            
-        </div>
-        </div>        
-    </div>    
+           
    </section>
 
 
@@ -966,21 +839,52 @@
     <div class="news-header-container" >
         <div class="update-and-news-slider">
             <div class="news-update-slider">
-                <a href=""> <img src="news/1.jpg" alt="news update" id="slider-img"></a>
+                @php
+                    $remembrancePosts = $newsPosts->filter(function($post) {
+                        return in_array($post->category, ['Remembrance', 'Memorial', 'Condolence', 'Obituary']);
+                    });
+                @endphp
+            
+                @if ($remembrancePosts->isNotEmpty())
+                    <img src="{{ asset('storage/' . $remembrancePosts->first()->image) }}" alt="news update" id="slider-img" style="width: 100%; height: 400px;">
+                @endif
+            
+                <script>
+                    var storeSliderImages = [
+                        @foreach($remembrancePosts->sortByDesc('created_at') as $post)
+                            "{{ asset('storage/' . $post->image) }}",
+                        @endforeach
+                    ];
                 
+                    var len = storeSliderImages.length;
+                    var i = 0;
+                
+                    function slider() {
+                        var slideImage = document.getElementById("slider-img"); 
+                
+                        if (i > len - 1) {
+                            i = 0;
+                        }
+                
+                        slideImage.src = storeSliderImages[i];
+                        i++;
+                        setTimeout(slider, 5000); 
+                    }
+                
+                    // Start the slider
+                    slider();
+                </script>
             </div>
+            
 
             <div class="news-category-container">
                 <div class="news-update">
-                    <a href="#" class="new-cat">Memorial</a>
-                    <a href="#" class="new-cat">Condolesence</a>
-                    <a href="#" class="new-cat">Obituary</a>
-                    <a href="#" class="new-cat">Local</a>
-                    <a href="#" class="new-cat">Cndolescence</a>
-                    <a href="#" class="new-cat">Politician</a>
-                    <a href="#" class="new-cat">Sports</a>
-                    <a href="#" class="new-cat">Sports</a>
-                    <a href="#" class="new-cat">Sports</a>                    
+                    <a href="{{ route('category.show', 'Memorial') }}" class="new-cat">Memorial</a>
+                    <a href="{{ route('category.show', 'Condolescence') }}" class="new-cat">Condolescence</a>
+                    <a href="{{ route('category.show', 'Obituary') }}" class="new-cat">Obituary</a>
+                    <a href="{{ route('category.show', 'Weather') }}" class="new-cat">Weather</a>
+                    <a href="{{ route('category.show', 'Technology') }}" class="new-cat">Technology</a>
+                    <a href="{{ route('category.show', 'Politician') }}" class="new-cat">Politician</a>                                    
                 </div>
             </div>
             
@@ -989,56 +893,54 @@
 
         <!-- start of the headline section-->
         <div class="news-headline-container">
-            <h3>Rememrance</h3>
+            <h3>Remembrance</h3>
             <!--- show the news headline-->
             <div class="news-headline">
-                <div class="news-headline-image">
-                    <a href=""><img src="news/4.jpg" alt="headline image"></a>
-                </div>
-                <div class="news-headline-title">
-                    <h2>International Jazz Festival</h2>
-                </div>
-                <div class="remember-me">
-                    <p> Name of the deaceased    </p>
-                    <p> 68 years         </p>
-                </div>
-
-
-                <div class="news-headline-image">
-                    <a href=""><img src="news/3.jpg" alt="headline image"></a>
-                </div>
-                <div class="news-headline-title">
-                    <h2>International Jazz Festival</h2>
-                </div>
-                <div class="remember-me">
-                    <p> Name of the deaceased    </p>
-                    <p> 68 years         </p>
-                </div>
-
-
-                <div class="news-headline-image">
-                    <a href=""><img src="news/1.jpg" alt="headline image"></a>
-                </div>
-                <div class="news-headline-title">
-                    <h2>International Jazz Festival</h2>
-                </div>
-                <div class="remember-me">
-                    <p> Name of the deaceased    </p>
-                    <p> 68 years         </p>
-                </div>
-
-                <div class="news-headline-image">
-                    <a href=""><img src="news/5.jpg" alt="headline image"></a>
-                </div>
-                <div class="news-headline-title">
-                    <h2>International Jazz Festival</h2>
-                </div>
-                <div class="remember-me">
-                    <p> Name of the deaceased    </p>
-                    <p> 68 years         </p>
-                </div>
-                
+                @php
+                $isRemembranceExist = false;
+                @endphp
+            
+                @foreach($newsPosts->sortByDesc('created_at')->take(10) as $post)
+                    @if(($post->category == 'Remembrance' || $post->category == 'Memorial' || $post->category == 'Condolescence' || $post->category == 'Obituary') && $post->is_headline)                                                   
+                        @php
+                        $isRemembranceExist = true;
+                        @endphp
+            
+                        <div class="news-headline-image">
+                            @if($post->image)
+                            <a href="{{ route('post.show', $post->id) }}">
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} Image">
+                            </a>
+                                
+                            @endif
+                        </div>
+                        <!----
+                        <div class="news-headline-title">
+                            <h2><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h2>
+                        </div>
+                    -->
+                        <div class="remember-me">
+                           
+                                    @if ($post->deceased_name)
+                                        <p>{{ $post->deceased_name }}</p>
+                                    @endif
+                                    <p>{{ $post->age }} years</p>
+                         
+                           
+                        </div>
+            
+                        <p >
+                            <a href="{{ route('post.show', $post->id) }}" style="color: black">{!! Illuminate\Support\Str::words(strip_tags($post->content), 20) !!}.... </a>
+                        </p>
+                        <br><br>
+                    @endif
+                @endforeach
+            
+                @if(!$isRemembranceExist)
+                    <p>No post available for this category yet</p>
+                @endif
             </div>
+            
             
         </div>
         <!-- end of the news-container-headline-->
@@ -1057,7 +959,11 @@
 <div class="register-biz">
     <div class="register-caption">
         <h3>Register Now to get your Business Listed on Essential Direct</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ea at veritatis nulla, molestias eaque rem iure dolor, sed soluta delectus minima dignissi</p>
+        <p>
+            Join Essential Direct today and showcase your business to the world! Stand out in your industry and reach new customers effortlessly. 
+            With Essential Direct, your business will get the visibility it deserves. 
+            Don't miss out on this opportunity to grow your brand and increase your sales. Sign up now and take your business to the next level!
+        </p>
         <button type="submit">Register Now</button>
     </div>
 
@@ -1078,7 +984,10 @@
 
             <div class="about-hotel">
                 <h5>You will be amazed by what we have prepared for you</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos necessitatibus fugit animi architecto! Accusantium, dolores. Sunt itaque maiores, inventore commodi officia quos deleniti fugiat nam beatae, perspiciatis animi quas eum.</p>
+                <p>
+                    Prepare to be enchanted by our warm hospitality and personalized service, crafted to exceed your expectations. 
+                    Whether you're traveling for business or leisure, our dedicated team is committed to making your stay a memorable one.
+                </p>
             </div>
         </div>
 
