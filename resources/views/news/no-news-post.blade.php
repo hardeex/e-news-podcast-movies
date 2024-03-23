@@ -68,6 +68,7 @@
                                 Audio
                             </a>
                         </li>
+                        <!---
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">Account</a>
                             <ul class="dropdown-menu">
@@ -77,7 +78,7 @@
                                 <li><a href="{{ route('single') }}">Admin Area</a></li>
                             </ul>
                         </li>
-                        
+                    -->
                         
                     </ul>
                 </nav>
@@ -89,16 +90,31 @@
                 <div class="not-found">
                     <div class="notfound-txt">
                         <h3 style="text-transform: none">No posts available for this category at the moment.</h3> 
-                        <p>Kindly, ensure you have not entered an invalid category</p>
+                        <p>Kindly, ensure you have not entered an invalid category.  </p> <br> <br>
+
+                        <strong style="color:darkorange">
+                            REDIRECTING TO THE HOMEPAGE In 3 seconds
+                        </strong>
                     </div>
+
+                  
+
                 
                     <div class="aside-container">
                        
-                    </div>
-
-                    
-                    
+                    </div>                                        
                 </div>
+
+                <script>
+                    // Display an alert message
+                
+                    // Redirect to the homepage after a delay
+                    setTimeout(function() {
+                        window.location.href = "{{ route('index') }}"; // Replace 'index' with the name of your homepage route
+                    }, 3000); // Adjust the delay (in milliseconds) as needed
+                </script>
+                
+                
             
         </section>
         
@@ -129,107 +145,16 @@
             </div>
         </form>
 
-        <div class="footer-links">
-            <div class="about-us-footer">
-                <h3>About Us</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates unde iste id pariatur corporis, doloribus aliquid deserunt iusto. Quos, distinctio beatae. Ipsum minus rerum fuga aliquid veritatis. Dolor, vero aperiam!</p>
-                <button>Learn More</button>
-            </div>
+       
 
-            <div class="quick-links-footer">
-                <div class="link-item">
-                    <h5>World</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
+        
 
-                <div class="link-item">
-                    <h5>Business</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
 
-                <div class="link-item">
-                    <h5>Tech</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
+               
 
-                <div class="link-item">
-                    <h5>Entertainment</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
+              
 
-                <div class="link-item">
-                    <h5>Health</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
-
-                <div class="link-item">
-                    <h5>World</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
-
-                <div class="link-item">
-                    <h5>World</h5>
-                    <ul>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                        <li><a href=""> Nigeria</a></li>
-                    </ul>
-                </div>
-
-                <div class="link-item">
-                    <h5>Follow Us</h5>
-                    <ul class="social-icons">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <!-- Adding more social media icons as needed by the team -->
-                    </ul>
-                </div>
+             
                 
 
             </div>

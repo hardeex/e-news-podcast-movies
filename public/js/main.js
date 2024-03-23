@@ -1,5 +1,14 @@
 
 
+// JavaScript for toggle button functionality of the menu item
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('show-menu'); // Toggle the 'show-menu' class
+    });
+});
 
 
 // Handling the flexibility to scroll by gesture and touch --- to be applied upon the completion of the UI

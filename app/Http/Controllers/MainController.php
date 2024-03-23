@@ -43,6 +43,7 @@ class MainController extends Controller
     {
         // Fetch the news
         $newsPosts = NewsPost::all(); 
+        $newsPostsFooter = NewsPost::all(); 
         $liveDesc = AdAndVideo::all();
         $shortVideos = ShortVideo::all();
 
@@ -75,6 +76,7 @@ class MainController extends Controller
             'liveVideos' => $liveVideos,
             'liveDesc' => $liveDesc,
             'shortVideos'=>$shortVideos,
+            'newsPostsFooter'=>$newsPostsFooter,
         ]);
     }
 

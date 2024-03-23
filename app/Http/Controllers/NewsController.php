@@ -5,16 +5,19 @@ use Illuminate\Http\Request;
 use App\Models\NewsPost;
 use App\Models\Category; 
 use App\Models\Image;
+use Illuminate\Support\Facades\View;
 
 class NewsController extends Controller
 {
 
 
+  
      // Display news posts by category
      public function showByCategory($category)
      {
          // Fetch category by name
          $category = Category::where('name', $category)->first();
+         $newsPostsFooter = NewsPost::all();
      
          if (!$category) {
              return view('news.no-news-post');
@@ -31,7 +34,7 @@ class NewsController extends Controller
              return view('news.no-news-post');
          }
      
-         return view('news.category', compact('category', 'newsPosts', 'recentPosts'));
+         return view('news.category', compact('category', 'newsPosts', 'recentPosts', 'newsPostsFooter'));
      }
      
      
@@ -39,7 +42,9 @@ class NewsController extends Controller
    // Display individual news post
    public function showPost($id)
    {
-       $post = NewsPost::find($id); // Retrieve the news post by ID
+       $post = NewsPost::find($id); 
+       $newsPostsFooter = NewsPost::all();
+
        if (!$post) {
            return view('news.no-news-post');
        }
@@ -52,7 +57,8 @@ class NewsController extends Controller
        return view('news.post')
            ->with('post', $post)
            ->with('recentPosts', $recentPosts)
-           ->with('categories', $categories);
+           ->with('categories', $categories)
+           ->with('newsPostsFooter', $newsPostsFooter);
    }
    
 

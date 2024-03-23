@@ -8,6 +8,7 @@ use App\Http\Controllers\NewsPostController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdAndVideoController;
 use App\Http\Controllers\ShortVideoController;
+use App\Http\Controllers\BaseController;
 
 
 /*
@@ -97,6 +98,9 @@ Route::get('/ad-and-video', [AdAndVideoController::class, 'index'])->name('show_
 //Route::get('/short_videos', [ShortVideoController::class, 'index'])->name('short_videos.index');
 //Route::get('/short_videos/create', [ShortVideoController::class, 'create'])->name('short_videos.create');
 Route::post('/short_videos', [ShortVideoController::class, 'store'])->name('short_videos.store');
+
+// implement search functionalty
+Route::get('/search', [BaseController::class, 'search'])->name('search');
 
 
 

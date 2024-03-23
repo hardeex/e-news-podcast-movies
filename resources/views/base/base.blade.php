@@ -47,9 +47,18 @@
             @endif
         </ul>
     </div>
-            <header>
-                <nav>           
+            <header >
+                
+                <nav >  
+                                             
                     <ul>
+                        
+                             <!-- Toggle button for mobile menu -->
+                             <li class="toggle-menu" style="position: fixed; top: 50px; right: 10px; font-size: 1.8rem">
+                                <a href="#" id="menu-toggle">
+                                    <i class="fas fa-bars"></i>
+                                </a>
+                            </li>
                         <li>
                             <a href="/">
                                 <img src="images/e-direct-logo.png" alt="E-Direct Logo">
@@ -88,9 +97,12 @@
                             </ul>
                         </li>
                         
+                   
+
                         
                     </ul>
                 </nav>
+              
             </header>
 
 
@@ -109,7 +121,7 @@
                         <form action="" method="get" class="form">
                             <div class="search-container">
                                 <input type="email" name="subscriber-email" id="subscribe-email">
-                                <button type="submit">Search</button> 
+                                <button type="submit">Subscribe</button> 
                             </div>
                         </form>
                     </div>
@@ -131,110 +143,163 @@
                         <div class="about-us-footer">
                             <h3>About Us</h3>
                             <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates unde iste id pariatur corporis, 
+                                INSERT ABOUT ESSENTIAL NIGERIA HERE Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates unde iste id pariatur corporis, 
                                 doloribus aliquid deserunt iusto. Quos, distinctio beatae. Ipsum minus rerum fuga aliquid veritatis. 
                                 Dolor, vero aperiam!</p>
                             <button>Learn More</button>
                         </div>
 
                         <div class="quick-links-footer">
+
+
+                            <div class="link-item">
+                                <h5>Nigeria</h5>
+                                <ul>
+                                    @if(isset($newsPostsFooter) && !$newsPostsFooter->isEmpty())
+                                    @foreach($newsPostsFooter->sortByDesc('created_at')->filter(function($post) {
+                                        return $post->category == 'Nigeria';
+                                    })->take(8) as $post)
+                                        <li>
+                                            <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                                        </li>
+                                    @endforeach
+                                    
+                                    @if($newsPostsFooter->filter(function($post) {
+                                        return $post->category == 'Nigeria';
+                                    })->isEmpty())
+                                        <li><p>No posts available for this category yet</p></li>
+                                    @endif
+                                @else
+                                    <li><p>No posts available for this category yet</p></li>
+                                @endif
+                                </ul>
+                            </div>
+
                             <div class="link-item">
                                 <h5>World</h5>
                                 <ul>
-                                    <li>
-                                        @php
-                                        $WorldPostsExist = false;
-                                    @endphp
-                                    
-                                    @foreach($newsPosts->sortByDesc('created_at')->take(5) as $post)
-                                        @if($post->category == 'World')
+
+                               
+
+                                    @if(isset($newsPostsFooter) && !$newsPostsFooter->isEmpty())
+                                    @foreach($newsPostsFooter->sortByDesc('created_at')->filter(function($post) {
+                                        return $post->category == 'World';
+                                    })->take(8) as $post)
+                                        <li>
                                             <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
-                                            @php
-                                                $WorldPostsExist = true;
-                                            @endphp
-                                        @endif
+                                        </li>
                                     @endforeach
                                     
-                                    @if(!$WorldPostsExist)
-                                        <p>No posts available for this category yet</p>
+                                    @if($newsPostsFooter->filter(function($post) {
+                                        return $post->category == 'World';
+                                    })->isEmpty())
+                                        <li><p>No posts available for this category yet</p></li>
                                     @endif
+                                @else
+                                    <li><p>No posts available for this category yet</p></li>
+                                @endif
+                                
                                     
-                                    </li>
-                                   
+                                
                                 </ul>
+                                
                             </div>
 
                             <div class="link-item">
                                 <h5>Business</h5>
                                 <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
+                                    @if(isset($newsPostsFooter) && !$newsPostsFooter->isEmpty())
+                                    @foreach($newsPostsFooter->sortByDesc('created_at')->filter(function($post) {
+                                        return $post->category == 'Business';
+                                    })->take(8) as $post)
+                                        <li>
+                                            <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                                        </li>
+                                    @endforeach
+                                    
+                                    @if($newsPostsFooter->filter(function($post) {
+                                        return $post->category == 'Business';
+                                    })->isEmpty())
+                                        <li><p>No posts available for this category yet</p></li>
+                                    @endif
+                                @else
+                                    <li><p>No posts available for this category yet</p></li>
+                                @endif
                                 </ul>
                             </div>
 
                             <div class="link-item">
-                                <h5>Tech</h5>
+                                <h5>Technology</h5>
                                 <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
+                                    @if(isset($newsPostsFooter) && !$newsPostsFooter->isEmpty())
+                                    @foreach($newsPostsFooter->sortByDesc('created_at')->filter(function($post) {
+                                        return $post->category == 'Technology';
+                                    })->take(8) as $post)
+                                        <li>
+                                            <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                                        </li>
+                                    @endforeach
+                                    
+                                    @if($newsPostsFooter->filter(function($post) {
+                                        return $post->category == 'Technology';
+                                    })->isEmpty())
+                                        <li><p>No posts available for this category yet</p></li>
+                                    @endif
+                                @else
+                                    <li><p>No posts available for this category yet</p></li>
+                                @endif
                                 </ul>
                             </div>
 
                             <div class="link-item">
                                 <h5>Entertainment</h5>
                                 <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
+                                    @if(isset($newsPostsFooter) && !$newsPostsFooter->isEmpty())
+                                    @foreach($newsPostsFooter->sortByDesc('created_at')->filter(function($post) {
+                                        return $post->category == 'Entertainment';
+                                    })->take(8) as $post)
+                                        <li>
+                                            <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                                        </li>
+                                    @endforeach
+                                    
+                                    @if($newsPostsFooter->filter(function($post) {
+                                        return $post->category == 'Entertainment';
+                                    })->isEmpty())
+                                        <li><p>No posts available for this category yet</p></li>
+                                    @endif
+                                @else
+                                    <li><p>No posts available for this category yet</p></li>
+                                @endif
                                 </ul>
                             </div>
 
                             <div class="link-item">
                                 <h5>Health</h5>
                                 <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
+                                    @if(isset($newsPostsFooter) && !$newsPostsFooter->isEmpty())
+                                    @foreach($newsPostsFooter->sortByDesc('created_at')->filter(function($post) {
+                                        return $post->category == 'Health';
+                                    })->take(8) as $post)
+                                        <li>
+                                            <p><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></p>
+                                        </li>
+                                    @endforeach
+                                    
+                                    @if($newsPostsFooter->filter(function($post) {
+                                        return $post->category == 'Health';
+                                    })->isEmpty())
+                                        <li><p>No posts available for this category yet</p></li>
+                                    @endif
+                                @else
+                                    <li><p>No posts available for this category yet</p></li>
+                                @endif
                                 </ul>
                             </div>
 
-                            <div class="link-item">
-                                <h5>World</h5>
-                                <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                </ul>
-                            </div>
+                           
 
-                            <div class="link-item">
-                                <h5>World</h5>
-                                <ul>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                    <li><a href=""> Nigeria</a></li>
-                                </ul>
-                            </div>
+                            
 
                             <div class="link-item">
                                 <h5>Follow Us</h5>
@@ -242,7 +307,7 @@
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <!-- Adding more social media icons as needed by the team -->
+                                   
                                 </ul>
                             </div>
                             

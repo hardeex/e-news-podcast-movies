@@ -78,6 +78,7 @@ header {
 }
 
 /* Style the navigation menu */
+
 nav ul {
     list-style: none; 
     margin: 0;
@@ -87,6 +88,7 @@ nav ul {
 
 nav ul li {
     margin-left: 20px; 
+    
 }
 
 nav ul li a {
@@ -118,6 +120,19 @@ nav ul li a {
     margin-bottom: 5px; /* Adjust spacing between dropdown items */
 }
 
+.toggle-menu {
+    display: block; /* Ensure toggle button is initially visible */
+    position: fixed; /* Adjust positioning if necessary */
+    top: 10px;
+    right: 10px;
+}
+
+#menu-toggle {
+    color: #fff; /* Add appropriate color */
+    font-size: 1.5rem; /* Adjust size as needed */
+    cursor: pointer;
+}
+
 /* Additional styling as needed */
 
 
@@ -127,11 +142,6 @@ header img {
     width: 100px;
     margin-right: 20px; 
 }
-
-
-
-
-
 
 
  .form {
@@ -170,6 +180,7 @@ header img {
 
 
 /*** === STYELING THE EXCHANGE RATE CONTAINER */
+
 .exchange-rate-list {
     list-style-type: none;
     padding: 0;
@@ -463,6 +474,7 @@ footer{
 
 
 /*==== STYLING THE HOT GIST SECTION ===== */
+
 .gist-section {
     
        
@@ -1055,40 +1067,39 @@ footer{
     margin-right: 5px; /* Added margin between icon and text */
 }
 
-
-/*****REMEMBRANCE SECTION */
-#remembrance{
+/* Existing styles for REMEMBRANCE SECTION */
+#remembrance {
     background-color: #CEE9F7;
     margin-top: 40px;
 }
 
-#remebrance-cat{
+#remebrance-cat {
     background-color: #CEE9F7;
 }
-.remember-me{
+
+.remember-me {
     display: flex;
     justify-content: space-between;
 }
 
-.remember-me p{
+.remember-me p {
     font-weight: bold;
 }
 
-
-/**** FAMILY TREE SECTION */
+/* Existing styles for FAMILY TREE SECTION */
 .family-tree {
     background-image: url('../images/family-tree.jpg');
-    background-size: cover; 
-    background-position: center; 
-    padding: 50px; 
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
     text-align: center;
-    color: #fff; 
+    color: #fff;
 }
 
 .family-tree h4 {
-    font-size: 2.7rem; 
+    font-size: 2.7rem;
     margin-bottom: 20px;
-    text-decoration: underline; 
+    text-decoration: underline;
     text-transform: uppercase;
 }
 
@@ -1099,128 +1110,123 @@ footer{
 
 .family-tree-button {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
-#view-ancestry{
+#view-ancestry {
     color: green;
     border: 1px solid green;
     background-color: transparent;
     padding: 20px;
     margin-right: 22px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
-#build-tree-btn{
+#build-tree-btn {
     color: white;
     padding: 5px 10px;
     background-color: green;
     padding: 20px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
-#view-acestry:hover, #build-tree-btn:hover{
+#view-acestry:hover,
+#build-tree-btn:hover {
     background-color: darkblue;
     transition: background-color 0.3s;
 }
 
-
-/* REGISTER BIZ ON E-DIRECT SECTION */
+/* Existing styles for REGISTER BIZ ON E-DIRECT SECTION */
 .register-biz {
-    background: linear-gradient(to right, #FF5733, #FFC300); 
+    background: linear-gradient(to right, #FF5733, #FFC300);
     display: flex;
-    justify-content: space-around; 
-    align-items: center; 
-    padding: 50px; 
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
 }
 
 .register-caption {
-    max-width: 50%; 
+    max-width: 50%;
     color: #fff;
 }
 
 .register-caption h3 {
-    font-size: 24px; 
-    margin-bottom: 20px; 
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .register-caption p {
-    font-size: 18px; 
-    margin-bottom: 20px; 
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .register-caption button {
-    padding: 10px 20px; 
-    font-size: 16px; 
-    background-color: #fff; 
-    color: #FF5733; 
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #FF5733;
     border: none;
-    border-radius: 5px; 
-    cursor: pointer; 
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .register-caption button:hover {
-    background-color: darkblue; 
-    color: #fff; 
+    background-color: darkblue;
+    color: #fff;
 }
 
-
-/*=== HOTEL SECTION */
-
+/* Existing styles for HOTEL SECTION */
 .book-hotel-container {
-    
-    padding: 50px; 
+    padding: 50px;
 }
 
-.book-hotel-container img{
+.book-hotel-container img {
     object-fit: cover;
 }
 
 .featured-hotel-container {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    margin-bottom: 20px; 
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .hotel {
-    flex: 2; 
+    flex: 2;
     background-image: url(../images/hotel6.jpeg);
-    background-size: cover; 
-    padding: 20px; 
+    background-size: cover;
+    padding: 20px;
     color: #fff;
 }
 
-.hotel h6{
+.hotel h6 {
     font-size: 1.9rem;
     font-weight: bold;
 }
 
-
-
 .hotel button {
     padding: 10px 20px;
-    font-size: 16px; 
-    background-color: #FF5733; 
-    color: #fff; 
-    border: none; 
-    border-radius: 5px; 
+    font-size: 16px;
+    background-color: #FF5733;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     text-align: end;
-    align-items:end ;
+    align-items: end;
 }
 
 .hotel button:hover {
-    background-color: darkblue; 
+    background-color: darkblue;
 }
 
 .about-hotel {
-    flex: 1; 
-    background-color: #f2f2f2; 
-    padding: 20px; 
+    flex: 1;
+    background-color: #f2f2f2;
+    padding: 20px;
 }
 
-.about-hotel h5{
+.about-hotel h5 {
     color: red;
     font-size: 1.5rem;
 }
@@ -1236,7 +1242,7 @@ footer{
 }
 
 .hotel-images img {
-    width: 30%; 
+    width: 30%;
     margin-bottom: 20px;
 }
 
@@ -1507,13 +1513,25 @@ ul li {
     }
 }
 
-
-/* Adjust width for responsiveness */
-@media screen and (max-width: 768px) {
-    header{
-        text-align: center;
-        align-items: center;
+@media screen and (min-width: 769px) {
+    .toggle-menu {
+        display: none; /* Hide toggle button for larger screens */
     }
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    section{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1.3rem;
+    }
+    
+    header {
+        padding: 10px;
+    }
+
     nav ul {
         flex-direction: column;
     }
@@ -1522,43 +1540,178 @@ ul li {
         margin: 10px 0;
     }
 
-    .dropdown {
-        position: static;
+    .dropdown-menu {
+        top: auto;
+        left: auto;
+        width: 100%; 
     }
 
-    .dropdown:hover .dropdown-menu {
-        display: none;
-    }
-
-    .dropdown .dropdown-menu {
-        position: static;
-        display: block;
-        background-color: transparent;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    header img {
+    
+	
+	 header img {
         width: 80px; 
-        margin-right: 10px; 
-    }
-
-    .form {
         margin-right: 10px;
     }
 
     .form input {
-        width: calc(100% - 40px); 
-        font-size: 14px; 
+        font-size: 16px; 
+    }
+	
+	.exchange-rate-list {
+        flex-wrap: wrap; 
     }
 
-    .form button {
-        display: none;
-        width: 40px;
-        height: 30px; 
-        font-size: 12px; 
+    .exchange-rate-list li {
+        margin-right: 10px;
+        margin-bottom: 10px; 
     }
+	
+	 footer {
+        margin: 30px;
+    }
+
+    .subscriber {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .subscriber img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .subscribe-form {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .footer {
+        padding: 15px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-us-footer,
+    .quick-links-footer {
+        flex: unset;
+        width: 100%;
+        text-align: center;
+    }
+
+    .link-item {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .link-item h5 {
+        font-size: 1rem;
+    }
+	
+	 .news-header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-header-container .update-and-news-slider {
+        flex: unset; 
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+	
+	 .new-cat {
+        flex: 1 0 calc(50% - 10px); /* Change to two columns on smaller screens */
+    }
+
+    .news-headline-container {
+        max-height: none; 
+        overflow-y: visible; 
+    }
+	
+	 .gist-section {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .local-gist, .international-gist {
+        width: 100%; 
+    }
+
+    .txt-vid-ad-section {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .txt-news, .live-video, .news-ad {
+        flex: unset; 
+        width: 100%; 
+        margin: 0; 
+    }
+
+    .live-video button {
+        margin: 10px 0; 
+    }
+	
+	 .top-news-category form {
+        width: 70%; 
+    }
+
     .cat-item {
-        width: calc(25% - 20px);
+        width: calc(50% - 10px); 
+    }
+
+    .more-news .more-news-item {
+        width: calc(50% - 20px); 
+    }
+	
+	.recent-movie-container {
+        flex-direction: column; 
+        align-items: center;
+        padding: 20px; 
+    }
+
+    .movie-title {
+        padding-left: 0; 
+        text-align: center; 
+    }
+
+    .movie-details p,
+    .movie-title p {
+        width: auto; 
+    }
+
+    .display-movies,
+    .display-music {
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+
+    .movie-item,
+    .music-item {
+        margin-right: 10px; 
+    }
+	
+	.show-pride-items {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    #pride-btn {
+        width: auto; 
+    }
+
+    .pride-item {
+        width: calc(50% - 20px); 
+    }
+
+    .essential-items-container {
+        flex-wrap: wrap; 
+    }
+
+    .essential-item {
+        width: calc(50% - 20px); 
     }
 }

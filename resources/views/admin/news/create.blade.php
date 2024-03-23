@@ -88,6 +88,7 @@
         <label for="image">Image:</label><br>
         <input type="file" id="image" name="image"><br> <br><br>
         
+        <h5>For the Remebrance Section</h5>
         <!---- Handlng other section of REMEMBRANCE PART OF THE PAGE --->
         <label for="deceased_name">Name of the Deceased</label>
         <input type="text" name="deceased_name" id="deceased_name" value="{{ old('deceased_name') }}"><br>
